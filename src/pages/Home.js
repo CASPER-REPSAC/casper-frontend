@@ -7,7 +7,7 @@ class Home extends React.Component {
             <>
             <div id="wrapper">
                 <header id="header" className="alt">
-                    <a href="index.html" className="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+                    <a href="." className="logo"><strong>CASPER</strong> <span>home</span></a>
                     <nav>
                         <a href="#menu">Menu</a>
                     </nav>
@@ -29,11 +29,11 @@ class Home extends React.Component {
                 <section id="banner" className="major">
                     <div className="inner">
                         <header className="major">
-                            <h1>Hi, my name is Forty</h1>
+                            <h1>RENEWAL CASPER Prototype</h1>
                         </header>
                         <div className="content">
-                            <p>A responsive site template designed by HTML5 UP<br />
-                            and released under the Creative Commons.</p>
+                            <p>This website is prototype using template.<br />
+                            If you can, try it and report on your experience.</p>
                             <ul className="actions">
                                 <li><a href="#one" className="button next scrolly">Get Started</a></li>
                             </ul>
@@ -45,38 +45,38 @@ class Home extends React.Component {
                         <section id="one" className="tiles">
                             <article>
                                 <header className="major">
-                                    <h3><a href="landing.html" className="link">Aliquam</a></h3>
-                                    <p>Ipsum dolor sit amet</p>
+                                    <h3><a href="landing.html" className="link">Notice</a></h3>
+                                    <p>Maybe notice form will be placed.</p>
                                 </header>
                             </article>
                             <article>
                                 <header className="major">
-                                    <h3><a href="landing.html" className="link">Tempus</a></h3>
-                                    <p>feugiat amet tempus</p>
+                                    <h3><a href="landing.html" className="link">Ranks</a></h3>
+                                    <p>Rescuer, Observer, Activist</p>
                                 </header>
                             </article>
                             <article>
                                 <header className="major">
-                                    <h3><a href="landing.html" className="link">Magna</a></h3>
-                                    <p>Lorem etiam nullam</p>
+                                    <h3><a href="landing.html" className="link">Photos</a></h3>
+                                    <p>Casper's photos</p>
                                 </header>
                             </article>
                             <article>
                                 <header className="major">
-                                    <h3><a href="landing.html" className="link">Ipsum</a></h3>
-                                    <p>Nisl sed aliquam</p>
+                                    <h3><a href="landing.html" className="link">Study & Project</a></h3>
+                                    <p>The Article of Study mangement</p>
                                 </header>
                             </article>
                             <article>
                                 <header className="major">
-                                    <h3><a href="landing.html" className="link">Consequat</a></h3>
-                                    <p>Ipsum dolor sit amet</p>
+                                    <h3><a href="landing.html" className="link">Presentation</a></h3>
+                                    <p>The Article of Presentation</p>
                                 </header>
                             </article>
                             <article>
                                 <header className="major">
-                                    <h3><a href="landing.html" className="link">Etiam</a></h3>
-                                    <p>Feugiat amet tempus</p>
+                                    <h3><a href="landing.html" className="link">CTF</a></h3>
+                                    <p>The Article of CTF mangement</p>
                                 </header>
                             </article>
                         </section>
@@ -84,9 +84,12 @@ class Home extends React.Component {
                         <section id="two">
                             <div className="inner">
                                 <header className="major">
-                                    <h2>Massa libero</h2>
+                                    <h2>About Us</h2>
                                 </header>
-                                <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+                                <h3>MAY 2000</h3>
+                                <strong>Beginnings</strong>
+                                <p>2000년 5월 1일 이종근 교수님 아래서 창단된 정보보호 동아리입니다. 보안과 관련된 여러 가지 분야에 대해 학습하며, 학습한 내용에 대한 내부세미나를 실시하여 동아리원이 같이 성장해 나가고 있습니다. 현재는 차정원 교수님의 지도아래 있습니다.</p>
+                                <p>...</p>
                                 <ul className="actions">
                                     <li><a href="landing.html" className="button next">Get Started</a></li>
                                 </ul>
@@ -124,23 +127,23 @@ class Home extends React.Component {
                                 <div className="contact-method">
                                     <span className="icon solid alt fa-envelope"></span>
                                     <h3>Email</h3>
-                                    <a href="#">information@untitled.tld</a>
+                                    <a href="#"></a>
                                 </div>
                             </section>
                             <section>
                                 <div className="contact-method">
                                     <span className="icon solid alt fa-phone"></span>
                                     <h3>Phone</h3>
-                                    <span>(000) 000-0000 x12387</span>
+                                    <span></span>
                                 </div>
                             </section>
                             <section>
                                 <div className="contact-method">
                                     <span className="icon solid alt fa-home"></span>
                                     <h3>Address</h3>
-                                    <span>1234 Somewhere Road #5432<br />
-                                    Nashville, TN 00000<br />
-                                    United States of America</span>
+                                    <span><br />
+                                    <br />
+                                    </span>
                                 </div>
                             </section>
                         </section>
@@ -157,7 +160,7 @@ class Home extends React.Component {
                             <li><a href="#" className="icon brands alt fa-linkedin-in"><span className="label">LinkedIn</span></a></li>
                         </ul>
                         <ul className="copyright">
-                            <li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                            <li>&copy; Casper</li><li>Design by <a href="http://github.com/Nevaland">neva</a></li>
                         </ul>
                     </div>
                 </footer>
