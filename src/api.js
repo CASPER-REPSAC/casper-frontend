@@ -5,8 +5,12 @@ function getAllPosts() {
   return axios.get('/posts/?format=json');
 }
 
+function getPost(id) {
+  return axios.get('/posts/' + id + '/?format=json');
+}
+
 function createPost(data) {
   return axios.post('/posts', data);
 }
 
-export { getAllPosts, createPost };
+export { getAllPosts, getPost, createPost };

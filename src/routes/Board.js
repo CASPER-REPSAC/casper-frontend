@@ -1,5 +1,6 @@
 import React from 'react';
 import { getAllPosts } from 'api';
+import { Link } from 'react-router-dom';
 
 class Board extends React.Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class Board extends React.Component {
   async receivePosts() {
     const received_posts = await getAllPosts();
     this.setState({ posts: received_posts.data });
-    console.log(received_posts);
   }
 
   render() {
@@ -49,10 +49,10 @@ class Board extends React.Component {
               </thead>
               <tbody>
                 {this.state.posts.map((post) => (
-                  <tr>
+                  <tr key={post.id}>
                     <td className="no">{post.id}</td>
                     <td className="title">
-                      <a href="">{post.title}</a>
+                      <Link to={'/board/' + post.id}>{post.title}</Link>
                     </td>
                     <td className="author">
                       <a href="">{post.author}</a>
