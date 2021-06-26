@@ -9,21 +9,10 @@ const AppRouter = () => {
     <Router>
       <Navigation />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-
-        <Route exact path="/board">
-          <Board />
-        </Route>
-
-        <Route exact path="/community">
-          <Home />
-        </Route>
-
-        <Route exact path="/library">
-          <Home />
-        </Route>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/board" component={Board} />
+        <Route exact path="/community" component={Home} />
+        <Route exact path="/library" component={Home} />
       </Switch>
     </Router>
   );
