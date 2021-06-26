@@ -1,17 +1,23 @@
 import React from 'react';
-
-const dummy_post = {
-  id: '428',
-  title: '2021년도 준회원 CTF 결과',
-  content: 'test_content',
-  author: 'Universe',
-  created: '2121.05.30',
-  viewer_num: '67',
-};
+import { getAllPosts } from 'api';
 
 class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+    };
+  }
+  componentDidMount() {
+    this.receivePosts();
+  }
+  async receivePosts() {
+    const received_posts = await getAllPosts();
+    this.setState({ posts: received_posts.data });
+    console.log(received_posts);
+  }
+
   render() {
-    const { id, title, author, created, viewer_num } = dummy_post;
     return (
       <>
         <div className="sub">
@@ -42,17 +48,21 @@ class Board extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="no">{id}</td>
-                  <td className="title">
-                    <a href="">{title}</a>
-                  </td>
-                  <td className="author">
-                    <a href="">{author}</a>
-                  </td>
-                  <td className="time">{created}</td>
-                  <td className="readNum">{viewer_num}</td>
-                </tr>
+                {this.state.posts.map((post) => (
+                  <tr>
+                    <td className="no">{post.id}</td>
+                    <td className="title">
+                      <a href="">{post.title}</a>
+                    </td>
+                    <td className="author">
+                      <a href="">{post.author}</a>
+                    </td>
+                    <td className="time">
+                      {post.created.slice(0, 10).replaceAll('-', '.')}
+                    </td>
+                    <td className="readNum">{post.viewer_num}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

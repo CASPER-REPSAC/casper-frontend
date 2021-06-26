@@ -2,7 +2,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:8000';
 
 function getAllPosts() {
-  return axios.get('/posts');
+  return axios.get('/posts/?format=json');
 }
 
 function createPost(data) {
