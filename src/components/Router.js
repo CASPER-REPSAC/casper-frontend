@@ -1,7 +1,8 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from 'routes/Home';
 import Navigation from 'components/Navigation';
+import Home from 'routes/Home';
+import Board from 'routes/Board';
 
 const AppRouter = () => {
   return (
@@ -13,7 +14,7 @@ const AppRouter = () => {
         </Route>
 
         <Route exact path="/board">
-          <Home />
+          <Board />
         </Route>
 
         <Route exact path="/community">
