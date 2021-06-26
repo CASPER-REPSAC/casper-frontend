@@ -1,20 +1,44 @@
 import React from 'react';
-import { getAllPosts } from 'api';
+import { getBoard, getDataByUrl } from 'api';
 import { Link } from 'react-router-dom';
 
 class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      board_name: this.props.location.pathname.replace('/board/', ''),
       posts: [],
     };
   }
   componentDidMount() {
     this.receivePosts();
   }
+  componentDidUpdate() {
+    if (
+      this.props.location.pathname.replace('/board/', '') !==
+      this.state.board_name
+    ) {
+      this.receivePosts();
+    }
+  }
+
   async receivePosts() {
-    const received_posts = await getAllPosts();
-    this.setState({ posts: received_posts.data });
+    this.setState({
+      board_name: this.props.location.pathname.replace('/board/', ''),
+    });
+    let board_id = 3;
+    if (this.state.board_name === 'notice') {
+      board_id = 1;
+    } else if (this.state.board_name === 'free') {
+      board_id = 2;
+    }
+    const received_board = await getBoard(board_id);
+
+    this.setState({ posts: [] });
+    for (let post_url of received_board.data.posts) {
+      const received_post = await getDataByUrl(post_url);
+      this.setState({ posts: this.state.posts.concat(received_post.data) });
+    }
   }
 
   render() {
@@ -22,7 +46,7 @@ class Board extends React.Component {
       <>
         <div className="sub">
           <div className="sub__title">
-            <h1>Board Name</h1>
+            <h1>{this.props.location.pathname.replace('/board/', '')}</h1>
           </div>
         </div>
         <div className="board">
@@ -52,7 +76,11 @@ class Board extends React.Component {
                   <tr key={post.id}>
                     <td className="no">{post.id}</td>
                     <td className="title">
-                      <Link to={'/board/' + post.id}>{post.title}</Link>
+                      <Link
+                        to={'/board/' + this.state.board_name + '/' + post.id}
+                      >
+                        {post.title}
+                      </Link>
                     </td>
                     <td className="author">
                       <a href="">{post.author}</a>

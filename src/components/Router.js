@@ -21,8 +21,7 @@ const AppRouter = () => {
         </Route>
         <Route exact path="/board/notice" component={Board} />
         <Route exact path="/board/free" component={Board} />
-        <Route exact path="/board/free/:id" component={Detail} />
-        <Route exact path="/board/notice/:id" component={Detail} />
+        <Route exact path="/board/:category/:id" component={Detail} />
         <Route exact path="/community" component={Home} />
         <Route exact path="/library" component={Home} />
       </Switch>
