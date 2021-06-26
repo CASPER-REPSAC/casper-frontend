@@ -1,28 +1,29 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from 'routes/Home';
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import Navigation from 'components/Navigation';
+import Home from 'routes/Home';
+import Board from 'routes/Board';
+import Detail from 'routes/Detail';
 
 const AppRouter = () => {
   return (
     <Router>
       <Navigation />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-
+        <Route exact path="/" component={Home} />
         <Route exact path="/board">
-          <Home />
+          <Redirect to="/board/notice" />
         </Route>
-
-        <Route exact path="/community">
-          <Home />
-        </Route>
-
-        <Route exact path="/library">
-          <Home />
-        </Route>
+        <Route exact path="/board/notice" component={Board} />
+        <Route exact path="/board/free" component={Board} />
+        <Route exact path="/board/:category/:id" component={Detail} />
+        <Route exact path="/community" component={Home} />
+        <Route exact path="/library" component={Home} />
       </Switch>
     </Router>
   );
