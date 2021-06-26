@@ -1,6 +1,16 @@
 import React from 'react';
 
+const dummy_post = {
+  id: '428',
+  title: '2021년도 준회원 CTF 결과',
+  content: 'test_content',
+  author: 'Universe',
+  created: '2121.05.30',
+  viewer_num: '67',
+};
+
 export default function Board() {
+  const { id, title, author, created, viewer_num } = dummy_post;
   return (
     <>
       <div className="sub">
@@ -32,15 +42,15 @@ export default function Board() {
             </thead>
             <tbody>
               <tr>
-                <td className="no">428</td>
+                <td className="no">{id}</td>
                 <td className="title">
-                  <a href="">2021년도 준회원 CTF 결과</a>
+                  <a href="">{title}</a>
                 </td>
                 <td className="author">
-                  <a href="">Universe</a>
+                  <a href="">{author}</a>
                 </td>
-                <td className="time">2121.05.30</td>
-                <td className="readNum">67</td>
+                <td className="time">{created}</td>
+                <td className="readNum">{viewer_num}</td>
               </tr>
             </tbody>
           </table>
