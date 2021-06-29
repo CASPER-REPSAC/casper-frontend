@@ -10,6 +10,7 @@ import Home from "routes/Home";
 import Board from "routes/Board";
 import Detail from "routes/Detail";
 import Lobby from "routes/Lobby";
+import Sos from "routes/Sos";
 
 const AppRouter = () => {
   return (
@@ -28,7 +29,7 @@ const AppRouter = () => {
           <Redirect to="/community/lobby" />
         </Route>
         <Route exact path="/community/lobby" component={Lobby} />
-        <Route exact path="/community/sos" component={Home} />
+        <Route exact path="/community/sos" component={Sos} />
         <Route exact path="/community/sos/:id" component={Home} />
         <Route exact path="/community/rank" component={Home} />
 
