@@ -1,12 +1,13 @@
-import React from 'react';
-import { getBoard, getDataByUrl } from 'api';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { getBoard, getDataByUrl } from "api";
+import { Link } from "react-router-dom";
+import { Table, Pagination } from "react-bootstrap";
 
 class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      board_name: this.props.location.pathname.replace('/board/', ''),
+      board_name: this.props.location.pathname.replace("/board/", ""),
       posts: [],
     };
   }
@@ -15,7 +16,7 @@ class Board extends React.Component {
   }
   componentDidUpdate() {
     if (
-      this.props.location.pathname.replace('/board/', '') !==
+      this.props.location.pathname.replace("/board/", "") !==
       this.state.board_name
     ) {
       this.receivePosts();
@@ -24,12 +25,12 @@ class Board extends React.Component {
 
   async receivePosts() {
     this.setState({
-      board_name: this.props.location.pathname.replace('/board/', ''),
+      board_name: this.props.location.pathname.replace("/board/", ""),
     });
     let board_id = 3;
-    if (this.state.board_name === 'notice') {
+    if (this.state.board_name === "notice") {
       board_id = 1;
-    } else if (this.state.board_name === 'free') {
+    } else if (this.state.board_name === "free") {
       board_id = 2;
     }
     const received_board = await getBoard(board_id);
@@ -46,12 +47,12 @@ class Board extends React.Component {
       <>
         <div className="sub">
           <div className="sub__title">
-            <h1>{this.props.location.pathname.replace('/board/', '')}</h1>
+            <h1>{this.props.location.pathname.replace("/board/", "")}</h1>
           </div>
         </div>
         <div className="board">
           <div className="board__list">
-            <table>
+            <Table hover size="sm">
               <thead>
                 <tr>
                   <th>
@@ -77,7 +78,7 @@ class Board extends React.Component {
                     <td className="no">{post.id}</td>
                     <td className="title">
                       <Link
-                        to={'/board/' + this.state.board_name + '/' + post.id}
+                        to={"/board/" + this.state.board_name + "/" + post.id}
                       >
                         {post.title}
                       </Link>
@@ -86,23 +87,26 @@ class Board extends React.Component {
                       <a href="">{post.author}</a>
                     </td>
                     <td className="time">
-                      {post.created.slice(0, 10).replaceAll('-', '.')}
+                      {post.created.slice(0, 10).replaceAll("-", ".")}
                     </td>
                     <td className="readNum">{post.viewer_num}</td>
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </Table>
           </div>
           <div className="board__footer">
-            <div className="board__footer__pagination">
-              <a href="">첫 페이지</a>
-              <strong>1</strong>
-              <a href="">2</a>
-              <a href="">3</a>
-              <a href="">4</a>
-              <a href="">끝 페이지</a>
-            </div>
+            <Pagination size="sm">
+              <Pagination.Item key={1} active={true} activeLabel="">
+                {1}
+              </Pagination.Item>
+              <Pagination.Item key={2} active={false}>
+                {2}
+              </Pagination.Item>
+              <Pagination.Item key={3} active={false}>
+                {3}
+              </Pagination.Item>
+            </Pagination>
           </div>
         </div>
       </>
