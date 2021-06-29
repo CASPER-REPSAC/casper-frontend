@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { getPost } from 'api';
+import React, { Component } from "react";
+import { getPost } from "api";
 
-export default class Detail extends Component {
+export default class PostDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {

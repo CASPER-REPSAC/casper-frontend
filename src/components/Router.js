@@ -8,7 +8,7 @@ import {
 import Navigation from "components/Navigation";
 import Home from "routes/Home";
 import Board from "routes/Board";
-import Detail from "routes/Detail";
+import PostDetail from "routes/PostDetail";
 import Lobby from "routes/Lobby";
 import Sos from "routes/Sos";
 
@@ -23,7 +23,7 @@ const AppRouter = () => {
         </Route>
         <Route exact path="/board/notice" component={Board} />
         <Route exact path="/board/free" component={Board} />
-        <Route exact path="/board/:category/:id" component={Detail} />
+        <Route exact path="/board/:category/:id" component={PostDetail} />
 
         <Route exact path="/community">
           <Redirect to="/community/lobby" />
