@@ -23,10 +23,15 @@ const AppRouter = () => {
         <Route exact path="/board/notice" component={Board} />
         <Route exact path="/board/free" component={Board} />
         <Route exact path="/board/:category/:id" component={Detail} />
+
         <Route exact path="/community">
           <Redirect to="/community/lobby" />
         </Route>
         <Route exact path="/community/lobby" component={Lobby} />
+        <Route exact path="/community/sos" component={Home} />
+        <Route exact path="/community/sos/:id" component={Home} />
+        <Route exact path="/community/rank" component={Home} />
+
         <Route exact path="/library" component={Home} />
       </Switch>
     </Router>
