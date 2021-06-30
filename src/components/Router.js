@@ -14,6 +14,7 @@ import Sos from "routes/Sos";
 import SosDetail from "routes/SosDetail";
 import Rank from "routes/Rank";
 import CommunityNav from "./CommunityNav";
+import Libaray from "routes/Libaray";
 
 const AppRouter = () => {
   return (
@@ -39,7 +40,7 @@ const AppRouter = () => {
           <Route exact path="/community/rank" component={Rank} />
         </Route>
 
-        <Route exact path="/library" component={Home} />
+        <Route exact path="/library" component={Libaray} />
       </Switch>
     </Router>
   );
