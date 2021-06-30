@@ -12,6 +12,7 @@ import PostDetail from "routes/PostDetail";
 import Lobby from "routes/Lobby";
 import Sos from "routes/Sos";
 import SosDetail from "routes/SosDetail";
+import Rank from "routes/Rank";
 
 const AppRouter = () => {
   return (
@@ -32,7 +33,7 @@ const AppRouter = () => {
         <Route exact path="/community/lobby" component={Lobby} />
         <Route exact path="/community/sos" component={Sos} />
         <Route exact path="/community/sos/:id" component={SosDetail} />
-        <Route exact path="/community/rank" component={Home} />
+        <Route exact path="/community/rank" component={Rank} />
 
         <Route exact path="/library" component={Home} />
       </Switch>
