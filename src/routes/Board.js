@@ -1,14 +1,14 @@
 import React from "react";
-import { getBoard, getDataByUrl } from "api";
+import { getBoards, getDataByUrl } from "api";
 import { Link } from "react-router-dom";
-import { Table, Pagination } from "react-bootstrap";
+import { Table, Pagination, Tabs, Tab, Nav } from "react-bootstrap";
 
 class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       board_name: this.props.location.pathname.replace("/board/", ""),
-      posts: [],
+      all_posts: {},
     };
   }
   componentDidMount() {
@@ -16,38 +16,76 @@ class Board extends React.Component {
   }
   componentDidUpdate() {
     if (
-      this.props.location.pathname.replace("/board/", "") !==
-      this.state.board_name
+      this.state.board_name !==
+      this.props.location.pathname.replace("/board/", "")
     ) {
-      this.receivePosts();
+      this.setState({
+        board_name: this.props.location.pathname.replace("/board/", ""),
+      });
     }
   }
 
   async receivePosts() {
-    this.setState({
-      board_name: this.props.location.pathname.replace("/board/", ""),
-    });
-    let board_id = 3;
-    if (this.state.board_name === "notice") {
-      board_id = 1;
-    } else if (this.state.board_name === "free") {
-      board_id = 2;
+    const received_board = await getBoards();
+    this.setState({ boards: received_board.data });
+    let all_posts = {};
+    for (let board of received_board.data) {
+      all_posts[board.name] = [];
+      for (let post_url of board.posts) {
+        const received_post = await getDataByUrl(post_url);
+        all_posts[board.name] = all_posts[board.name].concat(
+          received_post.data
+        );
+      }
     }
-    const received_board = await getBoard(board_id);
-
-    this.setState({ posts: [] });
-    for (let post_url of received_board.data.posts) {
-      const received_post = await getDataByUrl(post_url);
-      this.setState({ posts: this.state.posts.concat(received_post.data) });
-    }
+    this.setState({ all_posts: all_posts });
   }
 
   render() {
     return (
       <>
+        <Nav
+          variant="tabs"
+          defaultActiveKey={"#/board/" + this.state.board_name}
+        >
+          <Nav.Item>
+            <Nav.Link href="#/board/notice">공지사항</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#/board/free">자유게시판</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              사진첩
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              블로그
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              준회원 게시판
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              정회원 게시판
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              졸업생 게시판
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
         <div className="sub">
           <div className="sub__title">
-            <h1>{this.props.location.pathname.replace("/board/", "")}</h1>
+            <h1>{this.state.board_name}</h1>
           </div>
         </div>
         <div className="board">
@@ -73,25 +111,29 @@ class Board extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.posts.map((post) => (
-                  <tr key={post.id}>
-                    <td className="no">{post.id}</td>
-                    <td className="title">
-                      <Link
-                        to={"/board/" + this.state.board_name + "/" + post.id}
-                      >
-                        {post.title}
-                      </Link>
-                    </td>
-                    <td className="author">
-                      <a href="">{post.author}</a>
-                    </td>
-                    <td className="time">
-                      {post.created.slice(0, 10).replaceAll("-", ".")}
-                    </td>
-                    <td className="readNum">{post.viewer_num}</td>
-                  </tr>
-                ))}
+                {this.state.all_posts[this.state.board_name] ? (
+                  this.state.all_posts[this.state.board_name].map((post) => (
+                    <tr key={post.id}>
+                      <td className="no">{post.id}</td>
+                      <td className="title">
+                        <Link
+                          to={"/board/" + this.state.board_name + "/" + post.id}
+                        >
+                          {post.title}
+                        </Link>
+                      </td>
+                      <td className="author">
+                        <a href="">{post.author}</a>
+                      </td>
+                      <td className="time">
+                        {post.created.slice(0, 10).replaceAll("-", ".")}
+                      </td>
+                      <td className="readNum">{post.viewer_num}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <p>loading..</p>
+                )}
               </tbody>
             </Table>
           </div>
