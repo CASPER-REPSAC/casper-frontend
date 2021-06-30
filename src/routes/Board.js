@@ -54,6 +54,34 @@ class Board extends React.Component {
           <Nav.Item>
             <Nav.Link href="#/board/free">자유게시판</Nav.Link>
           </Nav.Item>
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              사진첩
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              블로그
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              준회원 게시판
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              정회원 게시판
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link disabled href="#">
+              졸업생 게시판
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
         <div className="sub">
           <div className="sub__title">
