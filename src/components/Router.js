@@ -13,6 +13,7 @@ import Lobby from "routes/Lobby";
 import Sos from "routes/Sos";
 import SosDetail from "routes/SosDetail";
 import Rank from "routes/Rank";
+import CommunityNav from "./CommunityNav";
 
 const AppRouter = () => {
   return (
@@ -27,13 +28,16 @@ const AppRouter = () => {
         <Route exact path="/board/free" component={Board} />
         <Route exact path="/board/:category/:id" component={PostDetail} />
 
-        <Route exact path="/community">
-          <Redirect to="/community/lobby" />
+        <Route path="/community">
+          <Route exact path="/community">
+            <Redirect to="/community/lobby" />
+          </Route>
+          <CommunityNav />
+          <Route exact path="/community/lobby" component={Lobby} />
+          <Route exact path="/community/sos" component={Sos} />
+          <Route exact path="/community/sos/:id" component={SosDetail} />
+          <Route exact path="/community/rank" component={Rank} />
         </Route>
-        <Route exact path="/community/lobby" component={Lobby} />
-        <Route exact path="/community/sos" component={Sos} />
-        <Route exact path="/community/sos/:id" component={SosDetail} />
-        <Route exact path="/community/rank" component={Rank} />
 
         <Route exact path="/library" component={Home} />
       </Switch>
