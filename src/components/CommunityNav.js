@@ -4,9 +4,15 @@ import { Nav } from "react-bootstrap";
 export default class CommunityNav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      service_name: document.location.href.match(/([^/]*)\/*$/)[1],
-    };
+    if (document.location.href.match(/([^/]*)\/*$/)[1] === "community") {
+      this.state = {
+        service_name: "lobby",
+      };
+    } else {
+      this.state = {
+        service_name: document.location.href.match(/([^/]*)\/*$/)[1],
+      };
+    }
   }
 
   render() {
