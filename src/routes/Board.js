@@ -1,7 +1,7 @@
 import React from "react";
 import { getBoards, getDataByUrl } from "api";
 import { Link } from "react-router-dom";
-import { Table, Pagination, Tabs, Tab, Nav } from "react-bootstrap";
+import { Table, Pagination, Nav } from "react-bootstrap";
 
 class Board extends React.Component {
   constructor(props) {
@@ -90,29 +90,29 @@ class Board extends React.Component {
         </div>
         <div className="board">
           <div className="board__list">
-            <Table hover size="sm">
-              <thead>
-                <tr>
-                  <th>
-                    <span>번호</span>
-                  </th>
-                  <th>
-                    <span>제목</span>
-                  </th>
-                  <th>
-                    <span>글쓴이</span>
-                  </th>
-                  <th>
-                    <span>날짜</span>
-                  </th>
-                  <th>
-                    <span>조회 수</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.all_posts[this.state.board_name] ? (
-                  this.state.all_posts[this.state.board_name].map((post) => (
+            {this.state.all_posts[this.state.board_name] ? (
+              <Table hover size="sm">
+                <thead>
+                  <tr>
+                    <th>
+                      <span>번호</span>
+                    </th>
+                    <th>
+                      <span>제목</span>
+                    </th>
+                    <th>
+                      <span>글쓴이</span>
+                    </th>
+                    <th>
+                      <span>날짜</span>
+                    </th>
+                    <th>
+                      <span>조회 수</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.all_posts[this.state.board_name].map((post) => (
                     <tr key={post.id}>
                       <td className="no">{post.id}</td>
                       <td className="title">
@@ -123,19 +123,19 @@ class Board extends React.Component {
                         </Link>
                       </td>
                       <td className="author">
-                        <a href="">{post.author}</a>
+                        <a href=".">{post.author}</a>
                       </td>
                       <td className="time">
                         {post.created.slice(0, 10).replaceAll("-", ".")}
                       </td>
                       <td className="readNum">{post.viewer_num}</td>
                     </tr>
-                  ))
-                ) : (
-                  <p>loading..</p>
-                )}
-              </tbody>
-            </Table>
+                  ))}
+                </tbody>
+              </Table>
+            ) : (
+              <p>Loading..</p>
+            )}
           </div>
           <div className="board__footer">
             <Pagination size="sm">

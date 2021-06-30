@@ -62,8 +62,8 @@ export default class Sos extends Component {
               </tr>
             </thead>
             <tbody>
-              {sos_dummy.questions.map((question) => (
-                <tr>
+              {sos_dummy.questions.map((question, index) => (
+                <tr key={index}>
                   <td className="title">
                     <Link to={"/community/sos/" + question.id}>
                       {question.title}

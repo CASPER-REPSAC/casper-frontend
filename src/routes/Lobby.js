@@ -38,8 +38,9 @@ export default class Lobby extends Component {
     return (
       <div>
         <div className="d-flex flex-row">
-          {lobby_dummy.apeals.map((apeal) => (
+          {lobby_dummy.apeals.map((apeal, index) => (
             <Card
+              key={index}
               className="text-center"
               style={{ width: "8rem", height: "10rem" }}
             >
@@ -66,8 +67,8 @@ export default class Lobby extends Component {
           </div>
           <div className="suggestion__list">
             <ListGroup>
-              {lobby_dummy.suggestions.map((suggestion) => (
-                <ListGroup.Item action href="">
+              {lobby_dummy.suggestions.map((suggestion, index) => (
+                <ListGroup.Item key={index} action href="">
                   {suggestion.title}
                 </ListGroup.Item>
               ))}
@@ -75,8 +76,8 @@ export default class Lobby extends Component {
           </div>
           <div className="suggestion__view">
             <p>{lobby_dummy.suggestions[0].title}</p>
-            {lobby_dummy.suggestions[0].chats.map((chat) => (
-              <p>
+            {lobby_dummy.suggestions[0].chats.map((chat, index) => (
+              <p key={index}>
                 {chat.author}: {chat.content}
               </p>
             ))}
@@ -84,8 +85,9 @@ export default class Lobby extends Component {
         </div>
         <span>Rescuers</span>
         <div className="d-flex flex-row">
-          {lobby_dummy.users.map((use) => (
+          {lobby_dummy.users.map((use, index) => (
             <Card
+              key={index}
               className="text-center"
               style={{ width: "8rem", height: "10rem" }}
             >
@@ -102,8 +104,9 @@ export default class Lobby extends Component {
         <div className="member-list">
           <span>정회원</span>
           <div className="d-flex flex-row">
-            {lobby_dummy.users.map((use) => (
+            {lobby_dummy.users.map((use, index) => (
               <Card
+                key={index}
                 className="text-center"
                 style={{ width: "8rem", height: "10rem" }}
               >
@@ -119,8 +122,9 @@ export default class Lobby extends Component {
           </div>
           <span>졸업생</span>
           <div className="d-flex flex-row">
-            {lobby_dummy.users.map((use) => (
+            {lobby_dummy.users.map((use, index) => (
               <Card
+                key={index}
                 className="text-center"
                 style={{ width: "8rem", height: "10rem" }}
               >

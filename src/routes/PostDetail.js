@@ -21,9 +21,7 @@ export default class PostDetail extends Component {
     return (
       <div className="post">
         <div className="post__header">
-          <h1>
-            <a href="">{title}</a>
-          </h1>
+          <h1>{title}</h1>
           <p className="post__header__meta">
             <span className="author">{author}</span>
             <span className="created">{created}</span>
