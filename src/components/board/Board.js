@@ -1,5 +1,5 @@
 import React from "react";
-import { getBoards, getDataByUrl } from "api";
+import { getBoards, getDataByUrl } from "modules/api";
 import { Link } from "react-router-dom";
 import { Table, Pagination, Nav } from "react-bootstrap";
 
