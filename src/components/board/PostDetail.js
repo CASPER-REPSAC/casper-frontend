@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getPost } from "api";
+import { getPost } from "modules/api";
 
 export default class PostDetail extends Component {
   constructor(props) {
