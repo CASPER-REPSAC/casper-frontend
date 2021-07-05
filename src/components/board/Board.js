@@ -50,13 +50,13 @@ class Board extends React.Component {
       <>
         <Nav
           variant="tabs"
-          defaultActiveKey={"#/board/" + this.state.board_name}
+          defaultActiveKey={"/board/" + this.state.board_name}
         >
           <Nav.Item>
-            <Nav.Link href="#/board/notice">공지사항</Nav.Link>
+            <Nav.Link href="/board/notice">공지사항</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#/board/free">자유게시판</Nav.Link>
+            <Nav.Link href="/board/free">자유게시판</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link disabled href="#">
