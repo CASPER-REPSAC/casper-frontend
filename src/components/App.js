@@ -49,6 +49,9 @@ function App() {
           </Route>
 
           <Route exact path="/library" component={Libaray} />
+
+          <Route exact path="/account/login" component={Home} />
+          <Route exact path="/account/logout" component={Home} />
         </Switch>
       </Router>
       <Footer />
