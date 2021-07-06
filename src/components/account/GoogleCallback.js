@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import { doLogin } from "modules/accountReducer";
+import { connect } from "react-redux";
 
 const API_AUTH_URL = "http://localhost:8000/accounts/google/callback/";
 const USER_URL = "http://localhost:8000/accounts/user/";
 
-export default class GoogleCallback extends Component {
-  constructor() {
-    super();
-    this.state = { email: "" };
-  }
-
+class GoogleCallback extends Component {
   componentDidMount() {
     const search_with_code = this.props.location.search;
     this.getUserWithSearch(search_with_code);
@@ -36,7 +33,7 @@ export default class GoogleCallback extends Component {
       received_tokens.data.access_token
     );
     console.log(received_user_info);
-    this.setState({ email: received_user_info.data.email });
+    this.props.doLogin();
     return received_user_info.data;
   }
 
@@ -44,3 +41,17 @@ export default class GoogleCallback extends Component {
     return <Redirect to="/" />;
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isLogin: state.accountReducer.isLogin,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    doLogin: () => dispatch(doLogin()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GoogleCallback);

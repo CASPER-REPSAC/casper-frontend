@@ -13,7 +13,7 @@ const AUTH_URI =
   SCOPE;
 
 export default class Login extends Component {
-  componentWillMount() {
+  componentDidMount() {
     window.location = AUTH_URI;
   }
   render() {
