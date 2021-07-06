@@ -53,5 +53,5 @@ const mapDispatchToProps = (dispatch) => {
     doLogin: (user) => dispatch(doLogin(user)),
   };
 };
-connect();
+
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleCallback);
