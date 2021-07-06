@@ -1,7 +1,7 @@
 import { createAction, handleActions } from "redux-actions";
 
-const DO_LOGIN = "DO_LOGIN";
-const DO_LOGOUT = "DO_LOGOUT";
+const DO_LOGIN = "account/DO_LOGIN";
+const DO_LOGOUT = "account/DO_LOGOUT";
 
 export const doLogin = createAction(DO_LOGIN, (user) => user);
 export const doLogout = createAction(DO_LOGOUT);
