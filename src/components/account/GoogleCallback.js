@@ -32,7 +32,10 @@ class GoogleCallback extends Component {
     const received_user_info = await this.getUserInfo(
       received_tokens.data.access_token
     );
-    this.props.doLogin(received_user_info.data);
+    this.props.doLogin({
+      user: received_user_info.data,
+      access_token: received_tokens.data.access_token,
+    });
     return received_user_info.data;
   }
 
@@ -50,7 +53,7 @@ const mapStateToProps = ({ accountReducer }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    doLogin: (user) => dispatch(doLogin(user)),
+    doLogin: (user_with_token) => dispatch(doLogin(user_with_token)),
   };
 };
 
