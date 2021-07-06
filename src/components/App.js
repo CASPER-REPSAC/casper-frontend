@@ -23,6 +23,7 @@ import Libaray from "components/library/Libarary";
 
 import Login from "components/account/Login";
 import GoogleCallback from "./account/GoogleCallback";
+import Logout from "./account/Logout";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -59,7 +60,7 @@ function App() {
             path="/account/google/callback"
             component={GoogleCallback}
           />
-          <Route exact path="/account/logout" component={Home} />
+          <Route exact path="/account/logout" component={Logout} />
         </Switch>
       </Router>
       <Footer />
