@@ -21,6 +21,9 @@ import Rank from "components/community/rank/Rank";
 
 import Libaray from "components/library/Libarary";
 
+import Login from "components/account/Login";
+import GoogleCallback from "./account/GoogleCallback";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -50,7 +53,12 @@ function App() {
 
           <Route exact path="/library" component={Libaray} />
 
-          <Route exact path="/account/login" component={Home} />
+          <Route exact path="/account/login" component={Login} />
+          <Route
+            exact
+            path="/account/google/callback"
+            component={GoogleCallback}
+          />
           <Route exact path="/account/logout" component={Home} />
         </Switch>
       </Router>
