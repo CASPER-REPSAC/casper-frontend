@@ -1,28 +1,16 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:8000";
+const baseURL = "http://localhost:8000";
 
-function getAllPosts() {
-  return axios.get("/posts/?format=json");
+function getPost(post_id) {
+  return axios.get(baseURL + "/boards/posts/" + post_id + "/");
 }
 
-function getPost(id) {
-  return axios.get("/posts/" + id + "/?format=json");
+function getCategory(category_id) {
+  return axios.get(baseURL + "/boards/categories/" + category_id + "/");
 }
 
-function getBoard(id) {
-  return axios.get("boards/" + id + "/?format=json");
-}
-
-function getBoards() {
-  return axios.get("boards/?format=json");
-}
-
-function createPost(data) {
-  return axios.post("/posts", data);
-}
-
-function getDataByUrl(url) {
+function getDataByURL(url) {
   return axios.get(url);
 }
 
-export { getAllPosts, getPost, getBoard, getBoards, createPost, getDataByUrl };
+export { getPost, getCategory, getDataByURL };

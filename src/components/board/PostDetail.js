@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getPost } from "modules/api";
+import { getPost, getDataByURL } from "modules/api";
 
 export default class PostDetail extends Component {
   constructor(props) {
@@ -10,12 +10,16 @@ export default class PostDetail extends Component {
     };
   }
   componentDidMount() {
-    this.receivePost();
+    this.receivePost(this.state.id);
   }
-  async receivePost() {
-    const received_post = await getPost(this.state.id);
+  async receivePost(post_id) {
+    const received_post = await getPost(post_id);
+    const author_url = received_post.data.author;
+    const received_author = await getDataByURL(author_url);
+    received_post.data.author = received_author.data.email;
     this.setState({ post: received_post.data });
   }
+
   render() {
     const { author, content, created, title, viewer_num } = this.state.post;
     return (

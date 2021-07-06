@@ -1,44 +1,48 @@
 import React from "react";
-import { getBoards, getDataByUrl } from "modules/api";
+import { getCategory, getDataByURL } from "modules/api";
 import { Link } from "react-router-dom";
 import { Table, Pagination, Nav } from "react-bootstrap";
+
+const CATEGORY_MAP = {
+  notice: 1,
+  free: 2,
+};
 
 class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       board_name: this.props.location.pathname.replace("/board/", ""),
-      all_posts: {},
+      posts: [],
     };
   }
   componentDidMount() {
-    this.receivePosts();
+    this.receivePosts(this.state.board_name);
   }
   componentDidUpdate() {
-    if (
-      this.state.board_name !==
-      this.props.location.pathname.replace("/board/", "")
-    ) {
+    const board_name_in_path = this.props.location.pathname.replace(
+      "/board/",
+      ""
+    );
+    if (this.state.board_name !== board_name_in_path) {
       this.setState({
-        board_name: this.props.location.pathname.replace("/board/", ""),
+        board_name: board_name_in_path,
       });
+      this.receivePosts(board_name_in_path);
     }
   }
 
-  async receivePosts() {
-    const received_board = await getBoards();
-    this.setState({ boards: received_board.data });
-    let all_posts = {};
-    for (let board of received_board.data) {
-      all_posts[board.name] = [];
-      for (let post_url of board.posts) {
-        const received_post = await getDataByUrl(post_url);
-        all_posts[board.name] = all_posts[board.name].concat(
-          received_post.data
-        );
-      }
+  async receivePosts(board_name) {
+    let posts = [];
+    const received_category = await getCategory(CATEGORY_MAP[board_name]);
+    for (let post_url of received_category.data.posts) {
+      const received_post = await getDataByURL(post_url);
+      const author_url = received_post.data.author;
+      const received_author = await getDataByURL(author_url);
+      received_post.data.author = received_author.data.email;
+      posts = posts.concat(received_post.data);
     }
-    this.setState({ all_posts: all_posts });
+    this.setState({ posts: posts });
   }
 
   render() {
@@ -46,13 +50,13 @@ class Board extends React.Component {
       <>
         <Nav
           variant="tabs"
-          defaultActiveKey={"#/board/" + this.state.board_name}
+          defaultActiveKey={"/board/" + this.state.board_name}
         >
           <Nav.Item>
-            <Nav.Link href="#/board/notice">공지사항</Nav.Link>
+            <Nav.Link href="/board/notice">공지사항</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#/board/free">자유게시판</Nav.Link>
+            <Nav.Link href="/board/free">자유게시판</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link disabled href="#">
@@ -90,29 +94,29 @@ class Board extends React.Component {
         </div>
         <div className="board">
           <div className="board__list">
-            {this.state.all_posts[this.state.board_name] ? (
-              <Table hover size="sm">
-                <thead>
-                  <tr>
-                    <th>
-                      <span>번호</span>
-                    </th>
-                    <th>
-                      <span>제목</span>
-                    </th>
-                    <th>
-                      <span>글쓴이</span>
-                    </th>
-                    <th>
-                      <span>날짜</span>
-                    </th>
-                    <th>
-                      <span>조회 수</span>
-                    </th>
-                  </tr>
-                </thead>
+            <Table hover size="sm">
+              <thead>
+                <tr>
+                  <th>
+                    <span>번호</span>
+                  </th>
+                  <th>
+                    <span>제목</span>
+                  </th>
+                  <th>
+                    <span>글쓴이</span>
+                  </th>
+                  <th>
+                    <span>날짜</span>
+                  </th>
+                  <th>
+                    <span>조회 수</span>
+                  </th>
+                </tr>
+              </thead>
+              {this.state.posts.length !== 0 ? (
                 <tbody>
-                  {this.state.all_posts[this.state.board_name].map((post) => (
+                  {this.state.posts.map((post) => (
                     <tr key={post.id}>
                       <td className="no">{post.id}</td>
                       <td className="title">
@@ -126,16 +130,16 @@ class Board extends React.Component {
                         <a href=".">{post.author}</a>
                       </td>
                       <td className="time">
-                        {post.created.slice(0, 10).replaceAll("-", ".")}
+                        {post.created_date.slice(0, 10).replaceAll("-", ".")}
                       </td>
                       <td className="readNum">{post.viewer_num}</td>
                     </tr>
                   ))}
                 </tbody>
-              </Table>
-            ) : (
-              <p>Loading..</p>
-            )}
+              ) : (
+                <tbody></tbody>
+              )}
+            </Table>
           </div>
           <div className="board__footer">
             <Pagination size="sm">

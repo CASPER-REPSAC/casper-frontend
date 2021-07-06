@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
@@ -20,6 +20,10 @@ import SosDetail from "components/community/sos/SosDetail";
 import Rank from "components/community/rank/Rank";
 
 import Libaray from "components/library/Libarary";
+
+import Login from "components/account/Login";
+import GoogleCallback from "./account/GoogleCallback";
+import Logout from "./account/Logout";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -49,6 +53,14 @@ function App() {
           </Route>
 
           <Route exact path="/library" component={Libaray} />
+
+          <Route exact path="/account/login" component={Login} />
+          <Route
+            exact
+            path="/account/google/callback"
+            component={GoogleCallback}
+          />
+          <Route exact path="/account/logout" component={Logout} />
         </Switch>
       </Router>
       <Footer />

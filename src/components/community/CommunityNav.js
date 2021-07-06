@@ -20,38 +20,38 @@ export default class CommunityNav extends Component {
       <div>
         <Nav
           variant="tabs"
-          defaultActiveKey={"#/community/" + this.state.service_name}
+          defaultActiveKey={"/community/" + this.state.service_name}
         >
           <Nav.Item>
-            <Nav.Link href="#/community/lobby">로비</Nav.Link>
+            <Nav.Link href="/community/lobby">로비</Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link disabled href="#/community/study">
+            <Nav.Link disabled href="/community/study">
               Study
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link disabled href="#/community/project">
+            <Nav.Link disabled href="/community/project">
               Project
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link disabled href="#/community/ctf">
+            <Nav.Link disabled href="/community/ctf">
               CTF
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link disabled href="#/community/activities">
+            <Nav.Link disabled href="/community/activities">
               Activities
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="#/community/sos">S.O.S</Nav.Link>
+            <Nav.Link href="/community/sos">S.O.S</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#/community/rank">Rank</Nav.Link>
+            <Nav.Link href="/community/rank">Rank</Nav.Link>
           </Nav.Item>
         </Nav>
       </div>
