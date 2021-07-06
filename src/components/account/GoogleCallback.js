@@ -32,8 +32,7 @@ class GoogleCallback extends Component {
     const received_user_info = await this.getUserInfo(
       received_tokens.data.access_token
     );
-    console.log(received_user_info);
-    this.props.doLogin();
+    this.props.doLogin(received_user_info.data);
     return received_user_info.data;
   }
 
@@ -42,16 +41,17 @@ class GoogleCallback extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ accountReducer }) => {
   return {
-    isLogin: state.accountReducer.isLogin,
+    isLogin: accountReducer.isLogin,
+    user: accountReducer.user,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    doLogin: () => dispatch(doLogin()),
+    doLogin: (user) => dispatch(doLogin(user)),
   };
 };
-
+connect();
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleCallback);

@@ -3,7 +3,7 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 
-const Navigation = (props) => (
+const Navigation = ({ isLogin, user }) => (
   <Navbar bg="light" expand="lg">
     <Container>
       <LinkContainer to="/">
@@ -18,7 +18,7 @@ const Navigation = (props) => (
           <LinkContainer to="/board">
             <Nav.Link>Board</Nav.Link>
           </LinkContainer>
-          {props.isLogin ? (
+          {isLogin ? (
             <>
               <LinkContainer to="/community">
                 <Nav.Link>Community</Nav.Link>
@@ -27,7 +27,7 @@ const Navigation = (props) => (
                 <Nav.Link>Library</Nav.Link>
               </LinkContainer>
 
-              <NavDropdown title="Neva" id="basic-nav-dropdown">
+              <NavDropdown title={user.nickname} id="basic-nav-dropdown">
                 <NavDropdown.Item>동아리 토큰 인증</NavDropdown.Item>
                 <NavDropdown.Item>회원정보 보기</NavDropdown.Item>
                 <NavDropdown.Item>작성 글 보기</NavDropdown.Item>
@@ -50,9 +50,10 @@ const Navigation = (props) => (
   </Navbar>
 );
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ accountReducer }) => {
   return {
-    isLogin: state.accountReducer.isLogin,
+    isLogin: accountReducer.isLogin,
+    user: accountReducer.user,
   };
 };
 
