@@ -6,6 +6,9 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "styles/main.scss";
+
 import Navigation from "components/navigation/Navigation";
 import Footer from "components/footer/Footer";
 
@@ -25,8 +28,7 @@ import Login from "components/account/Login";
 import GoogleCallback from "./account/GoogleCallback";
 import Logout from "./account/Logout";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "styles/main.scss";
+import { TerminalApp } from "components/extern/terminal/TerminalApp";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+
+          <Route exact path="/terminal" component={TerminalApp} />
 
           <Route path="/board">
             <Route exact path="/board">
