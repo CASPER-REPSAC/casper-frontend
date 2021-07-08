@@ -76,7 +76,7 @@ body {
   height: 100%;
 }
 
-body {
+div#app {
   background: var(--color-background);
   overflow: hidden;
   transition: background-color 250ms ease-in-out;
