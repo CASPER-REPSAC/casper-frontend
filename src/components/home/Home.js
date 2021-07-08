@@ -1,12 +1,12 @@
 import React from "react";
 
 class Home extends React.Component {
+  componentDidMount() {
+    window.location = "/theme";
+  }
+
   render() {
-    return (
-      <div>
-        <p>Banner</p>
-      </div>
-    );
+    return <></>;
   }
 }
 export default Home;

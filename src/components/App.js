@@ -31,39 +31,52 @@ function App() {
   return (
     <>
       <Router>
-        <Navigation />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/board">
-            <Redirect to="/board/notice" />
+
+          <Route path="/board">
+            <Route exact path="/board">
+              <Redirect to="/board/notice" />
+            </Route>
+            <Navigation />
+            <Route exact path="/board/notice" component={Board} />
+            <Route exact path="/board/free" component={Board} />
+            <Route exact path="/board/:category/:id" component={PostDetail} />
+            <Footer />
           </Route>
-          <Route exact path="/board/notice" component={Board} />
-          <Route exact path="/board/free" component={Board} />
-          <Route exact path="/board/:category/:id" component={PostDetail} />
 
           <Route path="/community">
             <Route exact path="/community">
               <Redirect to="/community/lobby" />
             </Route>
+            <Navigation />
             <CommunityNav />
             <Route exact path="/community/lobby" component={Lobby} />
             <Route exact path="/community/sos" component={Sos} />
             <Route exact path="/community/sos/:id" component={SosDetail} />
             <Route exact path="/community/rank" component={Rank} />
+            <Footer />
           </Route>
 
-          <Route exact path="/library" component={Libaray} />
+          <Route exact path="/library">
+            <Navigation />
+            <Route exact path="/library" component={Libaray} />
+            <Footer />
+          </Route>
 
-          <Route exact path="/account/login" component={Login} />
-          <Route
-            exact
-            path="/account/google/callback"
-            component={GoogleCallback}
-          />
-          <Route exact path="/account/logout" component={Logout} />
+          <Route exact path="/account">
+            <Navigation />
+            <Route exact path="/account/login" component={Login} />
+            <Route
+              exact
+              path="/account/google/callback"
+              component={GoogleCallback}
+            />
+            <Route exact path="/account/logout" component={Logout} />
+            <Footer />
+          </Route>
         </Switch>
       </Router>
-      <Footer />
     </>
   );
 }

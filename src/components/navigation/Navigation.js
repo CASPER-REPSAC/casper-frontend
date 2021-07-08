@@ -6,15 +6,11 @@ import { LinkContainer } from "react-router-bootstrap";
 const Navigation = ({ isLogin, user }) => (
   <Navbar bg="light" expand="lg">
     <Container>
-      <LinkContainer to="/">
-        <Navbar.Brand>CASPER</Navbar.Brand>
-      </LinkContainer>
+      <Navbar.Brand href="/theme">CASPER</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <LinkContainer to="/">
-            <Nav.Link>Home</Nav.Link>
-          </LinkContainer>
+          <Nav.Link href="/theme">Home</Nav.Link>
           <LinkContainer to="/board">
             <Nav.Link>Board</Nav.Link>
           </LinkContainer>
