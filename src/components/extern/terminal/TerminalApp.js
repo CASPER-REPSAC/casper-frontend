@@ -37,9 +37,8 @@ export const TerminalApp = () => {
 
 const Terminal = ({ theme, setTheme }) => {
   const [maximized, setMaximized] = React.useState(false);
-  const [title, setTitle] = React.useState("React Terminal");
-  const handleClose = () =>
-    (window.location.href = "https://codepen.io/HuntingHawk");
+  const [title, setTitle] = React.useState("Casper Terminal");
+  const handleClose = () => window.close();
   const handleMinMax = () => {
     setMaximized(!maximized);
     document.querySelector("#field").focus();
@@ -74,7 +73,7 @@ class Field extends React.Component {
       commandHistory: [],
       commandHistoryIndex: 0,
       fieldHistory: [
-        { text: "React Terminal" },
+        { text: "Casper Terminal" },
         {
           text: "Type HELP to see the full list of commands.",
           hasBuffer: true,
@@ -126,7 +125,7 @@ class Field extends React.Component {
       {
         command: "exit",
         purpose:
-          "Quits the React Terminal and returns to Jacob's portfolio page.",
+          "Quits the React Terminal and returns to casper's github page.",
       },
       {
         command: "time",
@@ -135,46 +134,17 @@ class Field extends React.Component {
       {
         command: "about",
         isMain: true,
-        purpose: "Displays basic information about Jacob.",
+        purpose: "Displays basic information about Casper.",
       },
       {
-        command: "experience",
+        command: "developer",
         isMain: true,
-        purpose: "Displays information about Jacob's experience.",
-      },
-      {
-        command: "skills",
-        isMain: true,
-        purpose: "Displays information about Jacob's skills as a developer.",
+        purpose: "Displays information about Developer",
       },
       {
         command: "contact",
         isMain: true,
-        purpose: "Displays contact information for Jacob.",
-      },
-      {
-        command: "projects",
-        isMain: true,
-        purpose:
-          "Displays information about what projects Jacob has done in the past.",
-      },
-      {
-        command: "project",
-        isMain: true,
-        purpose:
-          "Launches a specified project in a new tab or separate window.",
-        help: [
-          "PROJECT <TITLE>",
-          "Launches a specified project in a new tab or separate window.",
-          "List of projects currently include:",
-          "Minesweeper",
-          "PuniUrl",
-          "Taggen",
-          "Forum",
-          "Simon",
-          "",
-          "TITLE....................The title of the project you want to view.",
-        ],
+        purpose: "Displays contact information for Developer.",
       },
       {
         command: "title",
@@ -509,7 +479,7 @@ class Field extends React.Component {
             },
           ],
         }),
-        () => window.open("https://codepen.io/HuntingHawk/full/rNaEZxW")
+        () => window.open("/terminal")
       );
     } else if (cmd === "theme") {
       const { setTheme } = this.props;
@@ -559,7 +529,7 @@ class Field extends React.Component {
         ],
       }));
     } else if (cmd === "exit") {
-      return (window.location.href = "https://codepen.io/HuntingHawk");
+      return (window.location.href = "https://github.com/CASPER-REPSAC");
     } else if (cmd === "time") {
       return this.setState((state) => ({
         fieldHistory: [
@@ -578,64 +548,23 @@ class Field extends React.Component {
           ...state.fieldHistory,
           {
             text: [
-              "Hey there!",
-              `My name is Jacob. I'm a software developer based around Washington, DC, specializing in the JavaScript ecosystem. I love programming and developing interesting things for both regular folks and developers alike!`,
-              `Type CONTACT if you'd like to get in touch - otherwise I hope you enjoy using the rest of the app!`,
+              "Hello :>",
+              `My name is Casper. I'm security club in changwon university.`,
+              `Let's study hard and play with us! (งᐖ)ว`,
             ],
             hasBuffer: true,
           },
         ],
       }));
-    } else if (cmd === "experience") {
+    } else if (cmd === "developer") {
       return this.setState((state) => ({
         fieldHistory: [
           ...state.fieldHistory,
           {
             text: [
-              "Certificates:",
-              "ReactJS...............................Udacity",
-              "Front-end Development.................freeCodeCamp",
-              "JS Algorithms and Data Structures.....freeCodeCamp",
-              "Front-end Libraries...................freeCodeCamp",
-              "Responsive Web Design.................freeCodeCamp",
-              "",
-              "Work:",
-              "Shugoll Research",
-              "Database Technician",
-              "June 2015 - Present",
-            ],
-            hasBuffer: true,
-          },
-        ],
-      }));
-    } else if (cmd === "skills") {
-      return this.setState((state) => ({
-        fieldHistory: [
-          ...state.fieldHistory,
-          {
-            text: [
-              "Languages:",
-              "HTML",
-              "CSS",
-              "JavaScript",
-              "",
-              "Libraries/Frameworks:",
-              "Node",
-              "Express",
-              "React",
-              "Next",
-              "React Native",
-              "Redux",
-              "jQuery",
-              "",
-              "Other:",
-              "Git",
-              "GitHub",
-              "Heroku",
-              "CodePen",
-              "CodeSandBox",
-              "Firebase",
-              "NeDB",
+              "Hello there.",
+              `I'm a student studying service planning and software development and security. I am interested in automation, convenient service development, and active defense technology such as deception.`,
+              `Type CONTACT if you'd like to get in touch - otherwise I hope you enjoy using the rest of the service.`,
             ],
             hasBuffer: true,
           },
@@ -647,89 +576,12 @@ class Field extends React.Component {
           ...state.fieldHistory,
           {
             text: [
-              "Email: contact@jacoblockett.com",
-              "Website: jacoblockett.com",
-              "LinkedIn: @jacoblockett",
-              "GitHub: @huntinghawk1415",
-              "CodePen: @HuntingHawk",
+              "Email: deanh0716@gmail.com",
+              "GitHub: @nevaland",
+              "kakao: open.kakao.com/me/neva",
             ],
             hasBuffer: true,
           },
-        ],
-      }));
-    } else if (cmd === "projects") {
-      return this.setState((state) => ({
-        fieldHistory: [
-          ...state.fieldHistory,
-          {
-            text: [
-              "To view any of these projects live or their source files, type PROJECT <TITLE>, e.g. PROJECT Minesweeper.",
-              "",
-              "Minesweeper",
-              "Built with React",
-              `Some time ago I became increasingly addicted to minesweeper, specifically the version offered by Google. In fact, I was so addicted that I decided to build the damn thing.`,
-              "",
-              "PuniUrl",
-              "Built with Express, Firebase",
-              "Ever heard of TinyUrl? Ever been to their website? Atrocious. So I made my own version of it.",
-              "",
-              "Taggen",
-              "Built with Node",
-              `I was building an MS Excel spreadsheet parser (haven't finished it, imagine my stove has 10 rows of backburners) and needed a way to generate non-opinionated XML files. There were projects out there that came close, but I decided it would be fun to build it on my own.`,
-              "",
-              "Forum",
-              "Built with React, Redux, Bootstrap",
-              `This was a project I had to build for my final while taking Udacity's React Nanodegree certification course. It's an app that tracks posts and comments, likes, etc. Nothing too complicated, except for Redux... God I hate Redux.`,
-              "",
-              "Simon",
-              "Built with vanilla ice cream",
-              "The classic Simon memory game. I originally built this for the freeCodeCamp legacy certification, but later came back to it because I hated how bad I was with JavaScript at the time. I also wanted to see how well I could build it during a speed-coding session. Just over an hour.",
-            ],
-            hasBuffer: true,
-          },
-        ],
-      }));
-    } else if (cmd === "project") {
-      if (params.length === 1) {
-        const projects = [
-          {
-            title: "minesweeper",
-            live: "https://codepen.io/HuntingHawk/full/GRgLWKV",
-          },
-          {
-            title: "puniurl",
-            live: "http://www.puniurl.com/",
-          },
-          {
-            title: "taggen",
-            live: "https://github.com/huntinghawk1415/Taggen",
-          },
-          {
-            title: "forum",
-            live: "https://github.com/huntinghawk1415/ReactND-Readable",
-          },
-          {
-            title: "simon",
-            live: "https://codepen.io/HuntingHawk/full/mNPVgj",
-          },
-        ];
-
-        return this.setState(
-          (state) => ({
-            fieldHistory: [
-              ...state.fieldHistory,
-              { text: `Launching ${params[0]}...`, hasBuffer: true },
-            ],
-          }),
-          () =>
-            window.open(projects.filter((s) => s.title === params[0])[0].live)
-        );
-      }
-
-      return this.setState((state) => ({
-        fieldHistory: [
-          ...state.fieldHistory,
-          this.giveError("bp", { cmd: "PROJECT", noAccepted: 1 }),
         ],
       }));
     } else if (cmd === "title") {
@@ -837,7 +689,7 @@ class Field extends React.Component {
 const Text = ({ input, isCommand, isError, hasBuffer }) => (
   <>
     <div>
-      {isCommand && <div id="query">{"RT C:\\Users\\Guest>"}</div>}
+      {isCommand && <div id="query">{"guest@casper>"}</div>}
       <span className={!isCommand && isError ? "error" : ""}>{input}</span>
     </div>
     {hasBuffer && <div></div>}
@@ -853,7 +705,7 @@ const MultiText = ({ input, isError, hasBuffer }) => (
 );
 const UserText = ({ input, theme }) => (
   <div>
-    <div id="query">{"RT C:\\Users\\Guest>"}</div>
+    <div id="query">{"guest@casper>"}</div>
     <span>{input}</span>
     <div id="cursor" style={theme}></div>
   </div>
