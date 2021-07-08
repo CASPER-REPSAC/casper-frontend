@@ -26,6 +26,7 @@ import GoogleCallback from "./account/GoogleCallback";
 import Logout from "./account/Logout";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "styles/main.scss";
 
 function App() {
   return (

@@ -25,6 +25,7 @@
     "redux-actions": "^2.6.5",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",
+    "sass": "^1.35.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
