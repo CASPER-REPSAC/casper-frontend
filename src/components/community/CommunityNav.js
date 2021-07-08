@@ -27,8 +27,8 @@ export default class CommunityNav extends Component {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link disabled href="/community/study">
-              Study
+            <Nav.Link href="/chess">
+              <span style={{ color: "#6c757d" }}>Study</span> (♖♘♔)
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>

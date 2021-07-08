@@ -29,6 +29,7 @@ import GoogleCallback from "./account/GoogleCallback";
 import Logout from "./account/Logout";
 
 import { TerminalApp } from "components/extern/terminal/TerminalApp";
+import ChessApp from "components/extern/chess/ChessApp";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route exact path="/" component={Home} />
 
           <Route exact path="/terminal" component={TerminalApp} />
+          <Route exact path="/chess" component={ChessApp} />
 
           <Route path="/board">
             <Route exact path="/board">
