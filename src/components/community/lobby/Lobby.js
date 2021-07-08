@@ -1,51 +1,25 @@
 import React, { Component } from "react";
 import { Card, Form, ListGroup } from "react-bootstrap";
+import {
+  appeals_dummy,
+  suggestions_dummy,
+  rescuers_dummy,
+  users_dummy,
+} from "./lobby_dummy";
 
 export default class Lobby extends Component {
   render() {
-    const lobby_dummy = {
-      apeals: [
-        { created_date: "21-06-29", author: "Neva", content: "Everything" },
-        { created_date: "21-06-29", author: "Coais", content: "Languages" },
-      ],
-      suggestions: [
-        {
-          title: "Connect",
-          type: "project",
-          chats: [
-            { author: "Neva", created_date: "21-06-29", content: "i wanna do" },
-            { author: "Aven", created_date: "21-06-29", content: "good idea!" },
-          ],
-        },
-        { title: "Binary Analystics", type: "study", chats: [] },
-      ],
-      users: [
-        {
-          photo: "https://avatars.githubusercontent.com/u/41868642?v=4",
-          name: "Neva",
-          descryption: "Hi, I'm Neva",
-          stacks: "something",
-        },
-        {
-          photo: "https://avatars.githubusercontent.com/u/41868642?v=4",
-          name: "Aven",
-          descryption: "Hi, I'm aveN",
-          stacks: "anything",
-        },
-      ],
-    };
-
     return (
       <div>
         <div className="d-flex flex-row">
-          {lobby_dummy.apeals.map((apeal, index) => (
+          {appeals_dummy.map((apeal, index) => (
             <Card
               key={index}
               className="text-center"
               style={{ width: "8rem", height: "10rem" }}
             >
               <Card.Body>
-                <Card.Title>{apeal.author}</Card.Title>
+                <Card.Title>{apeal.owner.name}</Card.Title>
                 <Card.Text>{apeal.content}</Card.Text>
               </Card.Body>
             </Card>
@@ -67,7 +41,7 @@ export default class Lobby extends Component {
           </div>
           <div className="suggestion__list">
             <ListGroup>
-              {lobby_dummy.suggestions.map((suggestion, index) => (
+              {suggestions_dummy.map((suggestion, index) => (
                 <ListGroup.Item key={index} action href="">
                   {suggestion.title}
                 </ListGroup.Item>
@@ -75,28 +49,28 @@ export default class Lobby extends Component {
             </ListGroup>
           </div>
           <div className="suggestion__view">
-            <p>{lobby_dummy.suggestions[0].title}</p>
-            {lobby_dummy.suggestions[0].chats.map((chat, index) => (
+            <p>{suggestions_dummy[0].title}</p>
+            {suggestions_dummy[0].chats.map((chat, index) => (
               <p key={index}>
-                {chat.author}: {chat.content}
+                {chat.name}: {chat.content}
               </p>
             ))}
           </div>
         </div>
         <span>Rescuers</span>
         <div className="d-flex flex-row">
-          {lobby_dummy.users.map((use, index) => (
+          {rescuers_dummy.map((rescuer, index) => (
             <Card
               key={index}
               className="text-center"
               style={{ width: "8rem", height: "10rem" }}
             >
               <Card.Body>
-                <Card.Title>{use.name}</Card.Title>
+                <Card.Title>{rescuer.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {use.stacks}
+                  {rescuer.techs}
                 </Card.Subtitle>
-                <Card.Text>{use.descryption}</Card.Text>
+                <Card.Text>{rescuer.description}</Card.Text>
               </Card.Body>
             </Card>
           ))}
@@ -104,36 +78,36 @@ export default class Lobby extends Component {
         <div className="member-list">
           <span>정회원</span>
           <div className="d-flex flex-row">
-            {lobby_dummy.users.map((use, index) => (
+            {users_dummy.junior.map((user, index) => (
               <Card
                 key={index}
                 className="text-center"
                 style={{ width: "8rem", height: "10rem" }}
               >
                 <Card.Body>
-                  <Card.Title>{use.name}</Card.Title>
+                  <Card.Title>{user.name}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">
-                    {use.stacks}
+                    {user.techs}
                   </Card.Subtitle>
-                  <Card.Text>{use.descryption}</Card.Text>
+                  <Card.Text>{user.description}</Card.Text>
                 </Card.Body>
               </Card>
             ))}
           </div>
           <span>졸업생</span>
           <div className="d-flex flex-row">
-            {lobby_dummy.users.map((use, index) => (
+            {users_dummy.senior.map((user, index) => (
               <Card
                 key={index}
                 className="text-center"
                 style={{ width: "8rem", height: "10rem" }}
               >
                 <Card.Body>
-                  <Card.Title>{use.name}</Card.Title>
+                  <Card.Title>{user.name}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">
-                    {use.stacks}
+                    {user.techs}
                   </Card.Subtitle>
-                  <Card.Text>{use.descryption}</Card.Text>
+                  <Card.Text>{user.description}</Card.Text>
                 </Card.Body>
               </Card>
             ))}

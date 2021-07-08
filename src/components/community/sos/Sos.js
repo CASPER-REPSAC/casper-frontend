@@ -1,30 +1,10 @@
 import React, { Component } from "react";
 import { Button, Form, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { sos_dummy } from "./sos_dummy";
 
 export default class Sos extends Component {
   render() {
-    const sos_dummy = {
-      questions: [
-        {
-          id: 1,
-          author: "Neva",
-          created_date: "21-06-29",
-          title: "Somebody Help..",
-          empired_date: null,
-          category: "Django",
-          content: "Django Debug False Static Not found",
-        },
-      ],
-      answers: [
-        {
-          author: "Neva",
-          created_date: "21-06-29",
-          title: "It help you",
-          content: "python manage.py runserver --insecure, ...",
-        },
-      ],
-    };
     return (
       <div>
         <p>S.O.S</p>
@@ -62,7 +42,7 @@ export default class Sos extends Component {
               </tr>
             </thead>
             <tbody>
-              {sos_dummy.questions.map((question, index) => (
+              {sos_dummy.map((question, index) => (
                 <tr key={index}>
                   <td className="title">
                     <Link to={"/community/sos/" + question.id}>
@@ -70,7 +50,7 @@ export default class Sos extends Component {
                     </Link>
                   </td>
                   <td className="author">{question.author}</td>
-                  <td className="rescue_num">{sos_dummy.answers.length}</td>
+                  <td className="rescue_num">{question.answers.length}</td>
                 </tr>
               ))}
             </tbody>
