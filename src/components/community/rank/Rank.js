@@ -1,40 +1,9 @@
 import React, { Component } from "react";
 import { InputGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { rank_dummy } from "./rank_dummy";
 
 export default class Rank extends Component {
   render() {
-    const rank_dummy = {
-      ranks: [
-        {
-          year: "2021",
-          activist: {
-            first_user: "neva",
-            first_point: 3,
-            second_user: "aven",
-            second_point: 2,
-            third_user: "coais",
-            third_point: 1,
-          },
-          observer: {
-            first_user: "coais",
-            first_point: 3,
-            second_user: "neva",
-            second_point: 2,
-            third_user: "aven",
-            third_point: 1,
-          },
-          rescuer: {
-            first_user: "neva",
-            first_point: 3,
-            second_user: "coais",
-            second_point: 2,
-            third_user: "aven",
-            third_point: 1,
-          },
-        },
-      ],
-      mypoint: { activist: 3, observer: 2, rescuer: 3 },
-    };
     return (
       <div>
         <p>Rank</p>
@@ -173,7 +142,7 @@ export default class Rank extends Component {
             </div>
           </div>
           <div className="my-rank__point">
-            Neva
+            USER_NAME
             <p>Acitivist: {rank_dummy.mypoint.activist}</p>
             <p>Observer: {rank_dummy.mypoint.observer}</p>
             <p>Rescuer: {rank_dummy.mypoint.rescuer}</p>
