@@ -171,7 +171,7 @@ class Field extends React.Component {
             `${cmd.toUpperCase()} <QUERY>`,
             `Searches a given query using ${properCase}. If no query is provided, simply launches ${properCase}.`,
             "",
-            `QUERY....................It\'s the same as if you were to type inside the ${properCase} search bar.`,
+            `QUERY....................It's the same as if you were to type inside the ${properCase} search bar.`,
           ],
         };
       }),
