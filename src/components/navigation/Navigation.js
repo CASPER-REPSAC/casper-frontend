@@ -23,7 +23,8 @@ const Navigation = ({ isLogin, user }) => (
                 <Nav.Link>Library</Nav.Link>
               </LinkContainer>
 
-              <NavDropdown title={user.nickname} id="basic-nav-dropdown">
+              {/* <NavDropdown title={user.nickname} id="basic-nav-dropdown"> */}
+              <NavDropdown title="user" id="basic-nav-dropdown">
                 <NavDropdown.Item>동아리 토큰 인증</NavDropdown.Item>
                 <NavDropdown.Item>회원정보 보기</NavDropdown.Item>
                 <NavDropdown.Item>작성 글 보기</NavDropdown.Item>
