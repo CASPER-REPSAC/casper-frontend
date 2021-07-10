@@ -93,7 +93,7 @@ export class ErrorNotFound extends Component {
   render() {
     return (
       <>
-        <main>
+        <main id="not-found">
           <div class="container">
             <div class="row">
               <div class="col-md-6 align-self-center">
