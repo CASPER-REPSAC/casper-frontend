@@ -1216,8 +1216,8 @@ export default class ChessApp extends Component {
           moveInner = "";
         }
         document.body.style.setProperty(
-          "--color-background",
-          "var(--color-" + this.game.turn.toLowerCase()
+          "--chess-color-background",
+          "var(--chess-color-" + this.game.turn.toLowerCase()
         );
         var other = this.game.turn === "WHITE" ? "turn-black" : "turn-white";
         var current = this.game.turn === "WHITE" ? "turn-white" : "turn-black";
@@ -1509,7 +1509,7 @@ export default class ChessApp extends Component {
   }
   render() {
     return (
-      <div id="app">
+      <div id="chess-app">
         <section id="view">
           <aside>
             <div>

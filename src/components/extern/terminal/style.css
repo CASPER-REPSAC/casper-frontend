@@ -1,38 +1,36 @@
-*,
-*::before,
-*::after {
+#terminal-app *,
+#terminal-app *::before,
+#terminal-app *::after {
   box-sizing: border-box;
   font-family: Roboto Mono;
 }
-:focus,
-:hover,
-:active {
+#terminal-app :focus,
+#terminal-app :hover,
+#terminal-app :active {
   outline: none;
 }
-body {
+#terminal-app {
   margin: 0;
   overflow: hidden;
-}
-#app {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#terminal {
+#terminal-app #terminal {
   width: 90vw;
   max-width: 900px;
   height: 550px;
   transition: 0.2s;
 }
-#window {
+#terminal-app #window {
   height: 40px;
   display: flex;
   align-items: center;
   padding: 0 15px;
   cursor: default;
 }
-.btn {
+#terminal-app .terminal-btn {
   margin-right: 10px;
   border: none;
   height: 13px;
@@ -40,29 +38,29 @@ body {
   border-radius: 50%;
   box-shadow: 0 2px 2px #33333375;
 }
-.red {
+#terminal-app .red {
   background-color: #ff4136;
 }
-.error {
+#terminal-app .error {
   color: #ff4136;
 }
-.yellow {
+#terminal-app .yellow {
   background-color: #ffdc00;
 }
-.info {
+#terminal-app .info {
   color: #ffdc00;
 }
-.green {
+#terminal-app .green {
   background-color: #2ecc40;
 }
-#title,
-#field {
+#terminal-app #title,
+#terminal-app #field {
   font-size: 0.85rem;
 }
-#title {
+#terminal-app #title {
   margin-left: auto;
 }
-#field {
+#terminal-app #field {
   height: calc(100% - 40px);
   padding: 5px;
   overflow: auto;
@@ -71,32 +69,32 @@ body {
 		overflow-wrap: break-word will have to do. */
   overflow-wrap: break-word;
 }
-#field::-webkit-scrollbar {
+#terminal-app #field::-webkit-scrollbar {
   width: 10px;
 }
-#field.dark::-webkit-scrollbar-thumb {
+#terminal-app #field.dark::-webkit-scrollbar-thumb {
   background-color: #333444;
 }
-#field.light::-webkit-scrollbar-thumb {
+#terminal-app #field.light::-webkit-scrollbar-thumb {
   background-color: #aca9bb;
 }
-#field > div {
+#terminal-app #field > div {
   min-height: 20px;
   width: 100%;
   cursor: default;
 }
-#input-container {
+#terminal-app #input-container {
   display: flex;
 }
-#query,
-#cursor {
+#terminal-app #query,
+#terminal-app #cursor {
   display: inline-block;
 }
-#query {
+#terminal-app #query {
   margin-right: 10px;
   white-space: pre-line;
 }
-#cursor {
+#terminal-app #cursor {
   position: relative;
   bottom: -2px;
   left: 2px;
@@ -122,15 +120,15 @@ body {
   }
 }
 @media only screen and (max-width: 600px), (max-height: 600px) {
-  #terminal {
+  #terminal-app #terminal {
     height: 100vh;
     width: 100vw;
     min-width: 100vw;
   }
-  #field {
+  #terminal-app #field {
     height: 100%;
   }
-  #window {
+  #terminal-app #window {
     display: none;
   }
 }
