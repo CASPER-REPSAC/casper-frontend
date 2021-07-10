@@ -65,14 +65,13 @@ function App() {
             <Footer />
           </Route>
 
-          <Route exact path="/library">
+          <Route path="/library">
             <Navigation />
             <Route exact path="/library" component={Libaray} />
             <Footer />
           </Route>
 
-          <Route exact path="/account">
-            <Navigation />
+          <Route path="/account">
             <Route exact path="/account/login" component={Login} />
             <Route
               exact
@@ -80,7 +79,6 @@ function App() {
               component={GoogleCallback}
             />
             <Route exact path="/account/logout" component={Logout} />
-            <Footer />
           </Route>
         </Switch>
       </Router>
