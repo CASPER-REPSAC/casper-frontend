@@ -40,7 +40,7 @@ class GoogleCallback extends Component {
   }
 
   render() {
-    return <Redirect to="/" />;
+    return <Redirect to="/board" />;
   }
 }
 
