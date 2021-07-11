@@ -191,7 +191,16 @@
           border-style: none;
           font-size: 16px;
           color: white;
+
+          .new {
+            font-size: 10px;
+            vertical-align: top;
+            border: 1px solid red;
             color: red;
+            padding: 1px 4px;
+            border-radius: 10px;
+            margin-left: 6px;
+          }
         }
         &:first-child button {
           background-color: lightgreen;
@@ -214,15 +223,6 @@
         font-size: 16px;
         font-weight: bold;
         background-color: lightgreen;
-
-        .new {
-          font-size: 10px;
-          vertical-align: top;
-          border: 1px solid red;
-          padding: 1px 4px;
-          border-radius: 10px;
-          color: red;
-        }
       }
 
       .suggestion-chat__room {
@@ -393,6 +393,168 @@
       margin: 6px;
       text-align: center;
       word-break: keep-all;
+    }
+  }
+}
+
+.sos {
+}
+
+.rank {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  background-color: green;
+
+  .rank__board {
+    display: flex;
+    flex-direction: column;
+    .title {
+      width: 120px;
+      position: relative;
+      top: 10px;
+      left: 340px;
+      background-color: white;
+      border-radius: 10px;
+      // align-self: center;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .rank-box {
+      width: 800px;
+      height: 300px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px;
+      border: 4px solid red;
+      border-radius: 10px;
+      background-color: lightgreen;
+
+      .rank-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 4px;
+        border: 4px solid red;
+        border-radius: 10px;
+        background-color: greenyellow;
+        overflow: hidden;
+
+        .rank-card__title {
+          text-align: center;
+          background-color: yellow;
+          padding: 6px;
+          color: black;
+        }
+        .rank-card__img {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          // border: 4px solid white;
+          // border-radius: 10px;
+          background-color: red;
+          align-self: center;
+
+          p {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .rank__my {
+    width: 800px;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: lightgreen;
+    overflow: hidden;
+
+    .word-my {
+      width: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 10px;
+      color: white;
+      background-color: red;
+    }
+
+    .settings {
+      flex-grow: 3;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid red;
+
+      .setting {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        background-color: yellow;
+        .setting__title {
+          min-width: 84px;
+          align-self: center;
+          text-align: center;
+          border: 4px solid green;
+          border-radius: 10px;
+          padding: 20px;
+        }
+        .setting__field {
+          width: 100%;
+          height: 100%;
+          align-self: center;
+          align-items: center;
+          padding: 10px;
+          display: flex;
+          flex-direction: row;
+          background-color: greenyellow;
+          border-radius: 6px;
+          .checkbox {
+            margin: 6px;
+            text-align: center;
+          }
+          .label {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .points {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 2;
+      border: 2px solid red;
+
+      .points__title {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        padding: 4px;
+        background-color: yellow;
+      }
+      .points__point {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        span {
+          margin-bottom: 10px;
+        }
+      }
     }
   }
 }
