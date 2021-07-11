@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const WEB_SERVER_URL = "http://localhost:3000";
-export const API_SERVER_URL = "http://localhost:8000";
+export const WEB_SERVER_URL = `${process.env.REACT_APP_FRONT_SERVER_BASE_URL}`;
+export const API_SERVER_URL = `${process.env.REACT_APP_BACK_SERVER_BASE_URL}`;
 
 const baseURL = API_SERVER_URL;
 
