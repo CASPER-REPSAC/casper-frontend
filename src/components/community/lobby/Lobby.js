@@ -60,14 +60,16 @@ export default class Lobby extends Component {
           <ul className="suggestions-list">
             {suggestions_dummy.map((suggestion, index) => (
               <li key={index} className="suggestions-list__title">
-                <button>{suggestion.title}</button>
+                <button>
+                  {suggestion.title}
+                  {index === 1 ? <span className="new">3</span> : <></>}
+                </button>
               </li>
             ))}
           </ul>
           <div className="suggestion-chat">
             <div className="suggestion-chat__title">
               <span>{suggestions_dummy[0].title} </span>
-              <span className="new">3</span>
             </div>
             <ul className="suggestion-chat__room">
               {suggestions_dummy[0].chats.map((chat, index) => (
