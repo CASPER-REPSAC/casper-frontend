@@ -15,6 +15,13 @@ export default class CommunityNav extends Component {
     }
   }
 
+  componentDidMount() {
+    const chess_btn = document.getElementById("chess-btn");
+    chess_btn.addEventListener("click", () => {
+      window.open("/chess", "Chess", "width=800, height=800");
+    });
+  }
+
   render() {
     return (
       <div>
@@ -27,7 +34,7 @@ export default class CommunityNav extends Component {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/chess">
+            <Nav.Link id="chess-btn">
               <span style={{ color: "#6c757d" }}>Study</span> (♖♘♔)
             </Nav.Link>
           </Nav.Item>
