@@ -58,7 +58,7 @@ export default class Sos extends Component {
 
         <div className="sos__list">
           <span className="sos__list__title">구조 신호 (S.O.S) 목록 </span>
-          <Table hover size="sm">
+          <Table hover size="sm" className="sos__list__table">
             <thead>
               <tr>
                 <th>
