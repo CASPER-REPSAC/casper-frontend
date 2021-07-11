@@ -144,7 +144,7 @@ export default class Lobby extends Component {
           전체 멤버 보기
         </button>
         <div className="lobby__members">
-          <div className="junior-members">
+          <div className="junior-members" style={{ display: "none" }}>
             <span className="cardbox-tag">정회원</span>
             <div className="member-cardbox">
               {users_dummy.junior.map((user, index) => (
@@ -157,7 +157,7 @@ export default class Lobby extends Component {
               ))}
             </div>
           </div>
-          <div className="senior-members">
+          <div className="senior-members" style={{ display: "none" }}>
             <span className="cardbox-tag">졸업생</span>
             <div className="member-cardbox">
               {users_dummy.senior.map((user, index) => (
