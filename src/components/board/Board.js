@@ -39,7 +39,7 @@ class Board extends React.Component {
       const received_post = await getDataByURL(post_url);
       const author_url = received_post.data.author;
       const received_author = await getDataByURL(author_url);
-      received_post.data.author = received_author.data.nickname;
+      received_post.data.author = received_author.data.email;
       posts = posts.concat(received_post.data);
     }
     this.setState({ posts: posts });
