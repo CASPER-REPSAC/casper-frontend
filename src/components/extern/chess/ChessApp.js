@@ -19,7 +19,7 @@ export default class ChessApp extends Component {
         return __assign.apply(this, arguments);
       };
     console.clear();
-    var PIECE_DIR_CALC = 0;
+    // var PIECE_DIR_CALC = 0;
     var Utils = /** @class */ (function () {
       function Utils() {}
       Utils.colToInt = function (col) {
@@ -61,10 +61,10 @@ export default class ChessApp extends Component {
             };
           } else {
             var moved = string.length >= 4;
-            var id = string.slice(0, 2);
-            var col = string.charAt(moved ? 2 : 0);
-            var row = string.charAt(moved ? 3 : 1);
-            var moves = string.charAt(4) || moved ? "1" : "0";
+            id = string.slice(0, 2);
+            col = string.charAt(moved ? 2 : 0);
+            row = string.charAt(moved ? 3 : 1);
+            moves = string.charAt(4) || moved ? "1" : "0";
             overrides[id] = {
               col: col,
               row: row,
@@ -286,6 +286,7 @@ export default class ChessApp extends Component {
             case "ROOK":
               method = Constraints.constraintsRook;
               break;
+            default:
           }
         }
         var result = method ? method(args) : { moves: [], captures: [] };
@@ -538,7 +539,7 @@ export default class ChessApp extends Component {
         return this.dir(-steps, steps, positions);
       };
       Piece.prototype.dir = function (stepsRow, stepsColumn, positions) {
-        PIECE_DIR_CALC++;
+        // PIECE_DIR_CALC++;
         var row =
           Utils.rowToInt(positions[this.data.id].row) +
           this.orientation * stepsRow;
@@ -602,6 +603,7 @@ export default class ChessApp extends Component {
             return Shape.shapeQueen(player);
           case "ROOK":
             return Shape.shapeRook(player);
+          default:
         }
       };
       return Piece;
@@ -1216,8 +1218,8 @@ export default class ChessApp extends Component {
           moveInner = "";
         }
         document.body.style.setProperty(
-          "--color-background",
-          "var(--color-" + this.game.turn.toLowerCase()
+          "--chess-color-background",
+          "var(--chess-color-" + this.game.turn.toLowerCase()
         );
         var other = this.game.turn === "WHITE" ? "turn-black" : "turn-white";
         var current = this.game.turn === "WHITE" ? "turn-white" : "turn-black";
@@ -1460,6 +1462,7 @@ export default class ChessApp extends Component {
           if (this.inputSpeedSlow.checked) {
             return 1000;
           }
+          return 0;
         },
         enumerable: false,
         configurable: true,
@@ -1509,7 +1512,7 @@ export default class ChessApp extends Component {
   }
   render() {
     return (
-      <div id="app">
+      <div id="chess-app">
         <section id="view">
           <aside>
             <div>

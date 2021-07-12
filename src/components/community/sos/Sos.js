@@ -6,28 +6,59 @@ import { sos_dummy } from "./sos_dummy";
 export default class Sos extends Component {
   render() {
     return (
-      <div>
-        <p>S.O.S</p>
-        <div className="sos__write">
-          <Form>
-            <p>
-              구조자 대기: 4명 <Button>구조자 등록</Button>
-            </p>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Control type="text" placeholder="Title" />
-              <Form.Control type="text" placeholder="Category" />
-              <Form.Control type="text" placeholder="Empired Date" />
-
-              <Form.Control as="textarea" placeholder="Content" rows={2} />
-              <Button>구조요청 발신</Button>
-            </Form.Group>
-          </Form>
+      <div className="sos">
+        <div className="sos__form">
+          <div className="sos__form__inputs">
+            <div className="header">
+              <input
+                disabled
+                className="title"
+                placeholder="title"
+                type="text"
+              ></input>
+              <input
+                disabled
+                className="category"
+                type="text"
+                placeholder="category"
+              ></input>
+              <input
+                disabled
+                className="empired-date"
+                placeholder="empired-date"
+                type="date"
+              ></input>
+            </div>
+            <textarea
+              disabled
+              type="text"
+              className="content"
+              placeholder="content"
+            />
+          </div>
+          <div className="sos__form__submit">
+            <div className="rescuer-form">
+              <div className="rescuer-form__num">
+                <span>⛑ 구조자 대기: 4명</span>
+              </div>
+              <button disabled className="rescuer-form__regist">
+                구조자 등록
+              </button>
+            </div>
+            <div className="sos-submit">
+              <button disabled className="sos-submit__submit-btn">
+                구조 요청 🧨
+              </button>
+              <button disabled className="sos-submit__cancel-btn">
+                지우기
+              </button>
+            </div>
+          </div>
         </div>
+
         <div className="sos__list">
-          <Table hover size="sm">
+          <span className="sos__list__title">구조 신호 (S.O.S) 목록 </span>
+          <Table hover size="sm" className="sos__list__table">
             <thead>
               <tr>
                 <th>

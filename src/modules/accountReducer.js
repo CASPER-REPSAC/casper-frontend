@@ -23,7 +23,7 @@ const accountReducer = handleActions(
       user: user_with_token.user,
       access_token: user_with_token.access_token,
     }),
-    [DO_LOGOUT]: (state, action) => ({
+    [DO_LOGOUT]: (state) => ({
       ...state,
       isLogin: false,
       user: null,

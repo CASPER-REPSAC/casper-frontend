@@ -1,0 +1,697 @@
+:root {
+  --color-white: #ffffff;
+  --color-bright-gray: #f3f3f3;
+  --color-bright-gray2: #eeeeee;
+  --color-bright-gray3: #e9e9e9;
+  --color-gray: gray;
+  --color-black: #000000;
+  --color-bright-black: #666666;
+}
+
+.lobby {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: var(--color-white);
+
+  .lobby__appeals {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--color-bright-gray);
+
+    .tag {
+      position: absolute;
+      span {
+        position: relative;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background-color: var(--color-bright-gray2);
+        top: -28px;
+        left: -8px;
+        font-size: 15px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+
+    .appeal-card {
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      margin-right: 10px;
+      border-radius: 10px;
+      background-color: var(--color-white);
+
+      .appeal-card__photo {
+        align-self: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 20px;
+        margin: 12px;
+        background-color: var(--color-bright-gray);
+      }
+
+      .appeal-card__name {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .appeal-card__content {
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .lobby__suggestion {
+    // width: 100%;
+    height: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10px;
+    padding: 4px;
+    border-radius: 10px;
+    background-color: var(--color-bright-gray);
+
+    .suggest {
+      width: 420px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 6px 6px 2px 6px;
+
+      .suggest__top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        margin-bottom: 10px;
+
+        span {
+          display: flex;
+          align-items: center;
+          padding: 2px 8px;
+          font-size: 15px;
+          font-weight: bold;
+        }
+        .suggest__top__types {
+          button {
+            padding: 6px 8px;
+            border: none;
+            border-radius: 10px;
+            margin-left: 4px;
+            color: white;
+
+            &.project {
+              background-color: lightblue;
+            }
+            &.study {
+              background-color: lightgreen;
+            }
+            &.ctf {
+              background-color: lightpink;
+            }
+          }
+        }
+      }
+
+      .suggest__form {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        input,
+        textarea {
+          height: 40px;
+          padding: 4px;
+          border: none;
+          border-radius: 4px;
+          background-color: white;
+          color: black;
+          text-align: start;
+
+          &.title {
+            margin-bottom: 4px;
+          }
+          &.content {
+            width: 100%;
+            height: 100%;
+            resize: none;
+          }
+        }
+      }
+
+      .suggest__footer {
+        display: flex;
+        flex-direction: row;
+        margin-top: 4px;
+        align-self: flex-end;
+
+        button {
+          padding: 4px 16px;
+          border: none;
+          border-radius: 10px;
+          color: white;
+          margin-left: 4px;
+          &.cancel {
+            background-color: lightsalmon;
+          }
+          &.submit {
+            background-color: salmon;
+          }
+        }
+      }
+    }
+
+    .suggestions-list {
+      height: 100%;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      border-left: 4px solid var(--color-bright-gray2);
+      border-right: 4px solid var(--color-bright-gray2);
+      padding: 0px;
+      background-color: var(--color-bright-gray);
+
+      .suggestions-list__title {
+        width: 100%;
+        list-style: none;
+        margin-bottom: 2px;
+
+        button {
+          width: 100%;
+          height: 34px;
+          border-style: none;
+          font-size: 16px;
+          color: var(--color-white);
+
+          .new {
+            font-size: 10px;
+            vertical-align: top;
+            border: 2px solid salmon;
+            background-color: salmon;
+            color: var(--color-white);
+            font-weight: bold;
+            padding: 1px 4px;
+            border-radius: 10px;
+            margin-left: 6px;
+          }
+        }
+        &:first-child button {
+          background-color: lightgreen;
+        }
+        &:last-child button {
+          background-color: lightblue;
+        }
+      }
+    }
+
+    .suggestion-chat {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-bright-gray);
+
+      .suggestion-chat__title {
+        border-bottom: 4px solid var(--color-bright-gray);
+        padding: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: lightgreen;
+        color: var(--color-white);
+      }
+
+      .suggestion-chat__room {
+        height: 100%;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        padding: 0px;
+        .chat {
+          display: flex;
+          padding: 4px;
+          margin: 4px;
+          align-items: center;
+
+          .chat__name {
+            border-radius: 14px;
+            background-color: lightcoral;
+            color: white;
+            padding: 6px 8px;
+            margin-right: 8px;
+            font-size: 12px;
+          }
+          .chat__msg {
+            font-size: 13px;
+            color: var(--color-gray);
+          }
+        }
+      }
+
+      .suggestion-chat__input {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        border-top: 4px solid var(--color-bright-gray2);
+
+        input {
+          width: 100%;
+          border-width: 0px;
+          border-radius: 8px;
+          background-color: white;
+          padding: 4px 10px;
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+        button {
+          width: 60px;
+          padding: 6px 8px;
+          border: none;
+          border-radius: 10px;
+          margin-left: 4px;
+          color: white;
+          background-color: violet;
+        }
+      }
+    }
+  }
+
+  .lobby__rescuers {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .rescuers__cardbox {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: var(--color-bright-gray);
+    }
+  }
+
+  .lobby__activities {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: var(--color-bright-gray);
+    border-radius: 10px;
+    span {
+      text-align: center;
+      &:nth-child(1) {
+        font-size: 80px;
+      }
+      font-size: 40px;
+    }
+  }
+
+  .more-member-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin-top: 20px;
+    background-color: var(--color-bright-gray);
+    color: var(--color-bright-black);
+    align-self: flex-end;
+    font-size: 16px;
+
+    &:hover {
+      background-color: var(--color-gray);
+      color: var(--color-white);
+      font-weight: lighter;
+      transition: 0.4s;
+    }
+    &:active {
+      font-size: 20px;
+      transition: 0.4s;
+    }
+  }
+
+  .lobby__members {
+    .junior-members,
+    .senior-members {
+      margin-top: 20px;
+      .member-cardbox {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: var(--color-bright-gray);
+      }
+    }
+  }
+
+  // Reused Styles
+  .cardbox-tag {
+    width: 120px;
+    // background-color: var(--color-bright-gray);
+    padding: 2px 8px;
+    color: var(--color-bright-black);
+    font-size: 20px;
+    // font-weight: bold;
+    border-radius: 10px;
+    text-align: left;
+  }
+
+  .member-card {
+    width: 140px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: var(--color-white);
+
+    .photo {
+      align-self: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
+      margin: 12px;
+      background-color: var(--color-bright-gray);
+    }
+    .name {
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .techs {
+      text-align: center;
+      font-size: 14px;
+    }
+    .description {
+      font-size: 12px;
+      margin: 6px;
+      text-align: center;
+      word-break: keep-all;
+    }
+  }
+}
+
+.sos {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: white;
+  .sos__form {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--color-bright-gray);
+    .sos__form__inputs {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      input,
+      textarea {
+        margin: 4px;
+        padding: 8px;
+        resize: none;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--color-white);
+        color: var(--color-black);
+        text-align: start;
+      }
+
+      .header {
+        display: flex;
+        flex-flow: row wrap;
+
+        .title {
+          flex-grow: 4;
+        }
+        .category {
+          flex-grow: 1;
+        }
+        .empired-date {
+          flex-grow: 1;
+        }
+      }
+      .content {
+        height: 100%;
+      }
+    }
+    .sos__form__submit {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 320px;
+      .rescuer-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px;
+        .rescuer-form__num {
+        }
+        .rescuer-form__regist {
+          border: none;
+          background-color: lightskyblue;
+          border-radius: 8px;
+          padding: 4px 8px;
+          font-size: 14px;
+        }
+      }
+      .sos-submit {
+        display: flex;
+        flex-direction: column;
+        button {
+          margin: 4px 10px 0px 10px;
+          padding: 6px;
+
+          &.sos-submit__submit-btn {
+            border: none;
+            border-radius: 8px;
+            background-color: lightpink;
+            color: var(--color-gray);
+          }
+          &.sos-submit__cancel-btn {
+            border: none;
+            border-radius: 8px;
+            background-color: var(--color-bright-gray3);
+            color: var(--color-gray);
+          }
+        }
+      }
+    }
+  }
+  .sos__list {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+    margin-top: 24px;
+    border-radius: 10px;
+    background-color: var(--color-bright-gray);
+
+    .sos__list__title {
+      text-align: center;
+      margin: 4px;
+      padding-bottom: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--color-black);
+      border-bottom: 4px solid var(--color-bright-gray3);
+    }
+    .sos__list__table {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+.rank {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--color-white);
+
+  .rank__board {
+    display: flex;
+    flex-direction: column;
+    .title {
+      width: 120px;
+      position: relative;
+      top: 10px;
+      left: 340px;
+      border: 2px solid var(--color-bright-gray2);
+      background-color: var(--color-white);
+      color: var(--color-bright-black);
+      border-radius: 10px;
+      // align-self: center;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .rank-box {
+      width: 800px;
+      height: 300px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 18px;
+      border-radius: 10px;
+      background-color: var(--color-bright-gray);
+
+      .rank-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 4px;
+        border-radius: 10px;
+        background-color: var(--color-bright-gray);
+        overflow: hidden;
+
+        .rank-card__title {
+          text-align: center;
+          background-color: var(--color-bright-gray3);
+          padding: 6px;
+          color: var(--color-bright-black);
+        }
+        .rank-card__img {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          background-color: var(--color-white);
+          align-self: center;
+
+          p {
+            color: var(--color-gray);
+          }
+        }
+      }
+    }
+  }
+
+  .rank__my {
+    width: 800px;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: var(--color-bright-gray);
+    color: var(--color-gray);
+    overflow: hidden;
+
+    .word-my {
+      width: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 10px;
+      color: var(--color-bright-black);
+      background-color: var(--color-bright-gray3);
+    }
+
+    .settings {
+      flex-grow: 3;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid var(--color-bright-gray);
+
+      .setting {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        background-color: var(--color-bright-gray);
+        .setting__title {
+          min-width: 84px;
+          align-self: center;
+          text-align: center;
+          border-radius: 10px;
+          padding: 20px;
+          color: var(--color-bright-black);
+        }
+        .setting__field {
+          display: flex;
+          flex-direction: row;
+          align-self: center;
+          align-items: center;
+          justify-content: center;
+
+          padding: 10px;
+          border-radius: 6px;
+
+          .checkbox {
+            margin: 6px;
+            text-align: center;
+          }
+          .label {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .points {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 2;
+      align-items: center;
+      background-color: var(--color-bright-gray2);
+      .points__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        padding: 4px;
+        background-color: var(--color-bright-gray3);
+        color: var(--color-bright-black);
+      }
+      .points__point {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        span {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

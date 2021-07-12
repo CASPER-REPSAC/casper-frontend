@@ -14,19 +14,21 @@ const Navigation = ({ isLogin, user }) => (
           <LinkContainer to="/board">
             <Nav.Link>Board</Nav.Link>
           </LinkContainer>
+
+          <LinkContainer to="/community">
+            <Nav.Link>Community</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/library">
+            <Nav.Link>Library</Nav.Link>
+          </LinkContainer>
+
           {isLogin ? (
             <>
-              <LinkContainer to="/community">
-                <Nav.Link>Community</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/library">
-                <Nav.Link>Library</Nav.Link>
-              </LinkContainer>
-
-              <NavDropdown title={user.nickname} id="basic-nav-dropdown">
-                <NavDropdown.Item>동아리 토큰 인증</NavDropdown.Item>
-                <NavDropdown.Item>회원정보 보기</NavDropdown.Item>
-                <NavDropdown.Item>작성 글 보기</NavDropdown.Item>
+              {/* <NavDropdown title={user.nickname} id="basic-nav-dropdown"> */}
+              <NavDropdown title="user_nickname" id="basic-nav-dropdown">
+                <NavDropdown.Item disabled>동아리 토큰 인증</NavDropdown.Item>
+                <NavDropdown.Item disabled>회원정보 보기</NavDropdown.Item>
+                <NavDropdown.Item disabled>작성 글 보기</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <LinkContainer to="/account/logout">
                   <NavDropdown.Item>로그아웃</NavDropdown.Item>

@@ -29,7 +29,7 @@ export const TerminalApp = () => {
         };
 
   return (
-    <div id="app" style={themeVars.app}>
+    <div id="terminal-app" style={themeVars.app}>
       <Terminal theme={themeVars} setTheme={setTheme} />
     </div>
   );
@@ -54,9 +54,9 @@ const Terminal = ({ theme, setTheme }) => {
       }
     >
       <div id="window" style={theme.window}>
-        <button className="btn red" onClick={handleClose} />
-        <button id="useless-btn" className="btn yellow" />
-        <button className="btn green" onClick={handleMinMax} />
+        <button className="terminal-btn red" onClick={handleClose} />
+        <button id="useless-btn" className="terminal-btn yellow" />
+        <button className="terminal-btn green" onClick={handleMinMax} />
         <span id="title" style={{ color: theme.window.color }}>
           {title}
         </span>
@@ -171,7 +171,7 @@ class Field extends React.Component {
             `${cmd.toUpperCase()} <QUERY>`,
             `Searches a given query using ${properCase}. If no query is provided, simply launches ${properCase}.`,
             "",
-            `QUERY....................It\'s the same as if you were to type inside the ${properCase} search bar.`,
+            `QUERY....................It's the same as if you were to type inside the ${properCase} search bar.`,
           ],
         };
       }),
@@ -426,7 +426,7 @@ class Field extends React.Component {
                     ).join("")}${purpose}`
                 ),
               "",
-              "For help about a specific command, type HELP <CMD>, e.g. HELP PROJECT.",
+              "For help about a specific command, type HELP <CMD>, e.g. HELP ABOUT.",
             ],
             hasBuffer: true,
           },
@@ -577,7 +577,7 @@ class Field extends React.Component {
           {
             text: [
               "Email: deanh0716@gmail.com",
-              "GitHub: @nevaland",
+              "GitHub: @Nevaland",
               "kakao: open.kakao.com/me/neva",
             ],
             hasBuffer: true,

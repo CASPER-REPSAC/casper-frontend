@@ -22,7 +22,7 @@ const mapStateToProps = ({ accountReducer }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    doLogout: (user) => dispatch(doLogout()),
+    doLogout: () => dispatch(doLogout()),
   };
 };
 

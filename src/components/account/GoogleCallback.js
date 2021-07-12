@@ -4,8 +4,10 @@ import axios from "axios";
 import { doLogin } from "modules/accountReducer";
 import { connect } from "react-redux";
 
-const API_AUTH_URL = "http://localhost:8000/accounts/google/callback/";
-const USER_URL = "http://localhost:8000/accounts/user/";
+import { API_SERVER_URL } from "modules/api";
+
+const API_AUTH_URL = API_SERVER_URL + "/accounts/google/callback/";
+const USER_URL = API_SERVER_URL + "/accounts/user/";
 
 class GoogleCallback extends Component {
   componentDidMount() {
@@ -40,7 +42,7 @@ class GoogleCallback extends Component {
   }
 
   render() {
-    return <Redirect to="/" />;
+    return <Redirect to="/board" />;
   }
 }
 

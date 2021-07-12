@@ -7,7 +7,7 @@ export default function Footer() {
       <ul>
         <li>&copy; Casper</li>
         <li>
-          Founded by <a href="https://github.com/Nevaland">Neva</a>
+          Created by <a href="https://github.com/Nevaland">Neva</a>
         </li>
       </ul>
     </div>
